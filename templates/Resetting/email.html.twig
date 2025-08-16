@@ -1,0 +1,8 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<p>{{ 'resetting.email.begin'|trans({'%username%': datamail.user.firstName}) }}</p><br/>
+
+<p>{{ 'resetting.email.content'|trans }} <a href="{{ datamail.confirmationUrl }}">{{ 'resetting.email.lien'|trans }}</a></p><br/><br/>
+
+<p>{{ 'resetting.email.salutation'|trans }}<br/><br/>
+{{ 'resetting.email.teamFreelance'|trans }}
+</p>

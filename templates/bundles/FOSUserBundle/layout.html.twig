@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'login.title'|trans({}, 'FOSUserBundle') }}{% endblock %}
+
+{% block navbar %}
+    {% if app.user and app.user.hasRole(constant("App\\Enum\\RoleModeTypeEnum::ROLE_ENTERPRISE")) %}
+        {% include 'Menu/Enterprise/navbar.html.twig' %}
+    {% else %}
+        {% include 'Menu/Freelance/navbar.html.twig' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    <div>
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
+    </div>
+
+{% endblock %}

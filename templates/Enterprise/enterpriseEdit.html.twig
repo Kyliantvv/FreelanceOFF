@@ -1,0 +1,195 @@
+{% extends 'base.html.twig' %}
+
+{% block alternates %}
+
+    <link rel="alternate" href="{{ base_url }}/" hreflang="x-default"/>
+    <link rel="alternate" href="{{ base_url }}/fr/" hreflang="fr"/>
+    <link rel="alternate" href="{{ base_url }}/en/" hreflang="en"/>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('Index/index') }}
+{% endblock %}
+
+{% block title %}{{ app.user.identity }} | {{ 'menu.brandEnterprise'|trans }}{% endblock %}
+
+{% block navbar %}
+    {% include 'Menu/Enterprise/navbar.html.twig' %}
+{% endblock %}
+
+{% block content %}
+<div class="row mastercontent">
+    <div class="col-12 pt-4">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1 offset-0">
+                <div class="card testimonial-card">
+                    <div class="card-up indigo lighten-1"></div>
+                    <!-- Avatar -->
+                    {% if srcFile is not empty %}
+                        <div class="avatar mx-auto white">
+                            <img src="{{ srcFile }}" class="rounded-circle" alt="{{ form.vars.value.logo }}">
+                        </div>
+                    {% else %}
+                        <div class="avatar mx-auto white">
+                            <span class="d-flex align-items-center justify-content-center text-primary"><i class="fas fa-user fa-7x"></i></span>
+                        </div>
+                    {% endif %}
+                    <div class="card-body">
+                        {{ form_start(form, {'attr': {'id': 'form-document'}})}}
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                        {{ form_label(form.name) }}
+                                        {{ form_widget(form.name) }}
+                                    </div>
+                                    {{ form_errors(form.name) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                        {{ form_label(form.shortDescription) }}
+                                        {{ form_widget(form.shortDescription) }}
+                                    </div>
+                                    {{ form_errors(form.shortDescription) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                        {{ form_label(form.fullDescription, 'enterprise.form.descriptionFull', { 'label_attr': {'class': ' active '} }) }}
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="md-form">
+                                        {{ form_widget(form.fullDescription) }}
+                                    </div>
+                                    {{ form_errors(form.fullDescription) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    {{ form_label(form.idJobSection) }}
+                                    {{ form_widget(form.idJobSection, {'attr': {'searchable': 'enterprise.form.searchCombo'|trans}}) }}
+                                    {{ form_errors(form.idJobSection) }}
+                                </div>
+                            </div>
+                        </div>
+                            <div class="row">
+                                <div class="md-form col-12">
+                                    <div class="file-field">
+                                        <div class="btn btn-primary btn-sm float-left">
+                                            <span>{{'enterprise.form.upload'|trans}}</span>
+                                            {{ form_widget(form.logofile) }}
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text" placeholder="{{'enterprise.form.choose'|trans}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ form_errors(form.logofile) }}
+                            </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                        <h3>{{ 'enterprise.form.contact'|trans }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                    {{ form_label(form.email) }}
+                                    {{ form_widget(form.email) }}
+                                    </div>
+                                    {{ form_errors(form.email) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                    {{ form_label(form.contactTel) }}
+                                    {{ form_widget(form.contactTel) }}
+                                    </div>
+                                    {{ form_errors(form.contactTel) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                    {{ form_label(form.contactFirstName) }}
+                                    {{ form_widget(form.contactFirstName) }}
+                                    </div>
+                                    {{ form_errors(form.contactFirstName) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                    {{ form_label(form.contactUsualName) }}
+                                    {{ form_widget(form.contactUsualName) }}
+                                    </div>
+                                    {{ form_errors(form.contactUsualName) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                        <h3>{{ 'enterprise.form.url'|trans }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                    {{ form_label(form.urlWeb) }}
+                                    {{ form_widget(form.urlWeb) }}
+                                    </div>
+                                    {{ form_errors(form.urlWeb) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                    {{ form_label(form.facebook) }}
+                                    {{ form_widget(form.facebook) }}
+                                    </div>
+                                    {{ form_errors(form.facebook) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                    {{ form_label(form.linkedin) }}
+                                    {{ form_widget(form.linkedin) }}
+                                    </div>
+                                    {{ form_errors(form.linkedin) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-10">
+                                <button class="btn btn-primary btn-rounded btn-block mt-2 mb-0" type="submit">{{ 'btn.submit'|trans }}</button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ path('bazinga_jstranslation_js') }}"></script>
+    {{ encore_entry_script_tags('Enterprise/enterprise') }}
+    {{ tinymce_init() }}
+{% endblock %}

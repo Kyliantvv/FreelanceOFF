@@ -1,0 +1,128 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="row">
+    <div class="col-12 pt-4">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1 offset-0">
+                <div class="card testimonial-card">
+                    <div class="card-up indigo lighten-1"></div>
+                    <!-- Avatar -->
+                    {% if app.user.avatar is not empty %}
+                        <div class="avatar mx-auto white">
+                            <img src="{{ user.avatarContent }}" class="rounded-circle" alt="{{ user.identity }}">
+                        </div>
+                    {% else %}
+                        <div class="avatar mx-auto white">
+                            <span class="d-flex align-items-center justify-content-center text-primary"><i class="fas fa-user fa-7x"></i></span>
+                        </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <!-- Name -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="card-title">{{ app.user.identity }}</h3>
+                            </div>
+                            {% if user.resume is not empty and user.resume.idJobSection is not empty %}
+                                <div class="col-12">
+                                    <span class="mb-0">{{ user.resume.idJobSection.sectionName }}</span>
+                                </div>
+                            {% endif %}
+                            {% if user.resume %}
+                                {% if user.resume.title is not empty %}
+                                    <div class="col-12">
+                                        <span class="mb-0">{{ user.resume.title }}</span>
+                                    </div>
+                                {% endif %}
+                                {% if user.resume.seniority is not empty %}
+                                    <div class="col-6">
+                                        <h5 class="mb-0"><i class="fal fa-graduation-cap"></i> {{ ('resume.list.seniority.choices.'~user.resume.seniority)|trans }}</h5>
+                                    </div>
+                                {% endif %}
+                                {% if user.resume.tjm is not empty %}
+                                    <div class="col-6">
+                                        <h5 class="mb-0"><i class="fas fa-comments-dollar"></i> {{ user.resume.tjm }} <i class="fal fa-euro-sign"></i></h5>
+                                    </div>
+                                {% endif %}
+                                {% if user.resume.workerStatusType is not empty %}
+                                    <div class="col-6">
+                                        <h5 class="mb-0"><i class="fas fa-laptop-house"></i> {{ ('resume.form.workerStatusType.choices.'~user.resume.workerStatusType)|trans }}</h5>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                        <hr class="mt-1">
+                        {% if user.resume is not empty and user.resume.description is not empty %}
+                            <div class="col-12">
+                                <p><i class="fas fa-quote-left"></i> {{ user.resume.description }}</p>
+                            </div>
+                            <hr>
+                        {% endif %}
+                        <div class="col-12">
+                            <h4>
+                                {% if user.resume is not empty and (user.resume.city is not empty or user.resume.idCountry is not empty or user.resume.address is not empty) %}
+                                <i class="fas fa-map-marker-alt mr-2"></i><small>
+                                    {% endif %}
+                                    {% if user.resume.address is defined and user.resume.address is not empty %}
+                                        {{ user.resume.address }}{% if (user.resume.city is not empty or user.resume.idCountry is not empty) %},{% endif %}
+                                    {% endif %}
+                                    {% if (user.resume.city is defined and user.resume.city is not empty) %}
+                                        {{ user.resume.city }}{% if user.resume.idCountry is defined and user.resume.idCountry is not empty %} {{ user.resume.idCountry.countryName }}{% endif %}
+                                    {% elseif (user.resume.idCountry is defined and user.resume.idCountry is not empty) %}
+                                        {{ user.resume.idCountry.countryName }}
+                                    {% endif %}
+                                    {% if user.resume is not empty and (user.resume.city is not empty or user.resume.idCountry is not empty or user.resume.address is not empty) %}
+                                </small>
+                                {% endif %}
+                            </h4>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                {% if user.birthdate is defined and user.birthdate is not empty %}
+                                    <div class="col-6">
+                                        <h4><i class="fas fa-birthday-cake mr-2"></i><small>{{ user.birthdate|date("d/m/Y") }}</small></h4>
+                                    </div>
+                                {% endif %}
+                                <div class="col-6">
+                                    <h4><i class="fas fa-envelope mr-2"></i><small><a href="mailto:{{ user.email }}">{{ user.email }}</a></small></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                {% if user.mobilePhone is defined and user.mobilePhone is not empty %}
+                                    <div class="col-6">
+                                        <h4><i class="fas fa-mobile-alt mr-2"></i><small><a href="tel:{{ user.mobilePhone|phone_number_format('INTERNATIONAL') }}">{{ user.mobilePhone|phone_number_format('NATIONAL') }}</a></small></h4>
+                                    </div>
+                                {% endif %}
+                                {% if user.phone is defined and user.phone is not empty %}
+                                    <div class="col-6">
+                                        <h4><i class="fas fa-phone mr-2"></i><small><a href="tel:{{ user.phone|phone_number_format('INTERNATIONAL') }}">{{ user.phone|phone_number_format('NATIONAL') }}</a></small></h4>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if user.resume is not null and user.resume.links is not empty %}
+                            <div class="col-12 mt-2">
+                                <div class="row">
+                                    {% for link in user.resume.links %}
+                                        <div class="col-6">
+                                            <h4>{{ ('profile.show.link.linkType.'~link.linkType)|trans|raw }}<small><a href="{{ link.uriLink }}" target="_blank">{{ link.uriLink }}</a></small></h4>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-6 text-center">
+                <a href="{{ path('profile_edit') }}">{{ 'profile.profileEditTitle'|trans }}</a>
+            </div>
+            <div class="col-6 text-center">
+                <a href="{{ path('profile_password_reset') }}">{{ 'change_password.submit'|trans }}</a>
+            </div>
+        </div>
+    </div>
+</div>

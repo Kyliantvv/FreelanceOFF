@@ -1,0 +1,88 @@
+
+{% extends 'base.html.twig' %}
+
+{% block alternates %}
+
+    <link rel="alternate" href="{{ base_url }}/" hreflang="x-default"/>
+    <link rel="alternate" href="{{ base_url }}/fr/" hreflang="fr"/>
+    <link rel="alternate" href="{{ base_url }}/en/" hreflang="en"/>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('LegalNotice/legalNotice') }}
+{% endblock %}
+
+{% block navbar %}
+    {% include 'Menu/Freelance/navbarPresentation.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="justify-content-center col-12">
+            <div class="row py-5 legal-notice-section">
+                <div class="col-md-10 offset-md-1 col-12">
+                    <h1 class="title-color-first-section-enterprise">Politique de Confidentialité</h1>
+                    <p>La confidentialité et sécurité de vos données personnelles nous importent.</p>
+                    <p>Cette Politique de Confidentialité explique quelles informations personnelles nous récupérons dans le cadre de la réalisation de notre service de mise en relation nommé « Freelance Officer », expliqué en détails dans nos conditions générales d’utilisation, et comment nous utilisons et protégeons vos données, en complément du Règlement Général sur la Protection des Données (RGPD).</p>
+                    <p>La Politique de Confidentialité se réfère à la fois aux données des utilisateurs de notre Site Web comme aux données des utilisateurs de nos applications mobiles, et aux informations reçues par téléphone, chat ou courrier électronique (ensemble appelé « Site Web »).</p>
+                    <p>En naviguant sur Freelance Officer vous acceptez notre Politique de Confidentialité, et en fournissant vos informations personnelles, vous consentez à l’utilisation de ces données de la manière expliquée ci-dessous dans ce document.</p>
+                    <p><strong>Le présent document est structuré de la manière suivante :</strong></p>
+                    <p>Quelles informations récupérons-nous ?<br>
+                        Comment utilisons-nous vos données à caractère personnel ?<br>
+                        Avec qui partageons-nous vos données à caractère personnel ?<br>
+                        Protection et conservation de vos données à caractère personnel<br>
+                        Droit d’accès, rectification, annulation et limitation du traitement<br>
+                        Changements dans notre Politique de Confidentialité<br>
+                        Coordonnées contacte</p>
+                    <p><strong>Quelles informations récupérons-nous ?&nbsp;</strong></p>
+                    <p>En navigant sur Freelance Officer et en effectuant une première demande de contact “Formulaire” , vous nous fournissez les données à caractère personnel suivantes :</p>
+                    <p>Données de base<br>
+                        Prénom et nom<br>
+                        Nom de l’entreprise dans le cas où vous nous auriez fournis cette information additionnelle<br>
+                        Adresse électronique<br>
+                        Téléphone</p>
+                    <p><strong>Comment utilisons-nous vos données ?</strong></p>
+                    <p>Vos informations personnelles sont compilées dans le but de gérer votre compte, d’exécuter notre service correctement et de l’améliorer. Elles sont traitées de manière strictement confidentielle à toutes fins. Elles sont uniquement partagées avec des entreprises tierces quand la réalisation de notre service le requiert.</p>
+                    <p>À aucun moment nous ne partagerons vos informations avec des entreprises tierces qui ne prennent pas part à la réalisation de notre service, comme par exemple entreprises de Marketing et Publicité.</p>
+                    <p>Les données de base et les informations transactionnelles sont nécessaires pour l’exécution de notre service. Les spécificités techniques de votre appareil et de votre connexion sont collectées dans le but d’améliorer le fonctionnement technique de notre Site Web.</p>
+                    <p>Dans le cas où vous accepteriez de recevoir des courriers promotionnels, vos informations seront utilisées dans le cadre de l’envoi d’offres spéciales ou d’informations générales concernant notre service. Si vous ne souhaitez plus recevoir de courriers de cette nature, vous avez la possibilité de retirer votre consentement directement sur le mail en cliquant sur désabonner..</p>
+                    <p>Gardez à l’esprit qu’en partageant des commentaires à propos d’une commande, vous consentez à ce que nous utilisions lesdits commentaires sur notre Site Web et potentiellement sur n’importe quel support marketing ou publicitaire. A cet égard, n’apparaîtront uniquement votre prénom et la première lettre de votre nom de famille.</p>
+                    <p><strong>Avec qui partageons-nous vos données ?</strong></p>
+                    <p>Dans le cadre de la réalisation de notre service, nous collaborons avec certaines entreprises tierces qui peuvent avoir besoin de prendre part à la traite de vos informations personnelles à notre nom (« Gestionnaires de l’information »), par exemple :<br>
+                        Le système chat et téléphonique, le système d’envoi de messages SMS, le système d’envoi de newsletters, et autres outils analytiques que nous utilisons sont maniés par des entreprises tierces qui conservent les informations dans ses propres serveurs.</p>
+                    <p>Nous mettons en œuvre tous les moyens nécessaires afin d’assurer que seuls les Gestionnaires de l’information reçoivent les données strictement nécessaires et qu’ils les traitent avec le même égard que nous. Tout particulièrement dans le cadre d’entreprises tierces situées dans des pays où les lois relatives à la confidentialité ne fournissent pas un niveau de protection équivalent à celui exigé par l’Union Européenne, comme les États-Unis d’Amérique, nous mettons en place des moyens additionnels afin de garantir que vos données soient traitées en toute confidentialité et avec un niveau de protection similaire.</p>
+                    <p>Il est possible que certains organismes de sécurité, agence ou tiers, nous demandent de révéler vos données dans le cadre d’une requête légale ou d’un ordre judiciaire. A réception de telles demandes, nous agirons de manière responsable et préserverons vos intérêts.</p>
+                    <p>A cet égard, vous acceptez que nous puissions divulguer ou partager vos informations personnelles avec des tiers conformément à ce stipulé antérieurement dans le but d’exécuter nos services, et, le cas échéant, sur la base de votre consentement explicite.</p>
+                    <p><strong>Protection et conservation de vos données</strong></p>
+                    <p>Nous mettons tout en œuvre afin de protéger vos informations de tout accès non autorisé et procédures illicites, perte accidentelle, destruction ou dommages.</p>
+                    <p>Nous conserverons vos informations durant une période raisonnable ou à hauteur de c’exiger par la loi.</p>
+                    <p>Cependant, la transmission des informations par le biais d’internet n’est pas entièrement fiable. Une fois l’information reçue, nous emploierons de strictes procédures et moyens de sécurité afin d’essayer d’éviter tout accès non autorisé.</p>
+                    <p>L’Entreprise prendra toutes les précautions raisonnables afin de garantir un stockage sécurisé, chiffré, de votre mot de passe. Nous vous recommandons de combiner des lettres majuscules, lettres minuscules, et chiffres ou caractères spéciaux afin de le rendre le plus sûre possible. Vous êtes responsable de maintenir votre mot de passe confidentiel. Nous vous recommandons de ne le partager avec personne.</p>
+                    <p><strong>Droit d’accès, rectification, d’effacement et limitation du traitement</strong></p>
+                    <p>Vous avez le droit de consulter les informations relatives à votre personne que nous possédons (« accès »), de nous demander que nous effectuions des modifications afin de veiller que tout est exact et actualisé (« rectification »), ainsi que d’exercer vos droits d’effacement et de limitation du traitement de vos données personnelles. Si vous souhaitez exercer quelques-uns de ces droits, contactez-nous via les coordonnées indiquées ci-suit.</p>
+                    <p>Gardez en tête que l’effacement de vos données n’inclut pas la destruction de vos informations transactionnelles de facturation car la loi nous oblige à conserver ces données. Dans le cas d’une demande d’effacement de vos données, toutes vos données de base personnelles seront anonymisées, cependant l’historique de vos commandes et factures sera conservé dans notre système pour une période de 60 mois.</p>
+                    <p><strong>Changement dans notre Politique de Confidentialité</strong></p>
+                    <p>Tout changement de notre Politique de Confidentialité sera publié sur notre Site Web et, au cas où cela serait nécessaire, un mail vous sera envoyé afin d’obtenir votre accord.</p>
+                    <p><strong>Coordonnées contact</strong></p>
+                    <p>Pour tout commentaire ou demande de regard à l’égard de notre utilisation de vos informations personnelles, ou demande d’exercice de vos droits (point 5), nous vous invitons à nous envoyer un courrier électronique à contact@freelanceofficer.fr ou à vous rendre au siège de notre entreprise :</p>
+                    <p>Freedom Staffing</p>
+                    <p>SARL au capital de 10&nbsp;000 euros</p>
+                    <p>Siège social&nbsp;: 161 Rue Victor Hugo, 92270 BOIS-COLOMBES</p>
+                    <p>RCS Nanterre&nbsp;: &nbsp;887&nbsp;495&nbsp;257</p>
+                    <p>Code NAF&nbsp;: 7810Z</p>
+                    <p>N° TVA intra- communautaire&nbsp;: FR04887495257</p>
+                </div>
+            </div>
+            {% include 'Index/Freelance/indexPresentationFooter.html.twig' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ path('bazinga_jstranslation_js') }}"></script>
+    {{ encore_entry_script_tags('LegalNotice/legalNotice') }}
+{% endblock %}

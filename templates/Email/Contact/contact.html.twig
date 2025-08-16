@@ -1,0 +1,10 @@
+{% include 'Email/Base/header.html.twig' %}
+<p>{{ 'email.contact.begin'|trans }}</p><br/>
+<p>{{ 'email.contact.contentFreelance'|trans }}</p>
+<p>{{ 'email.contact.contentIdentity.name'|trans }} <b>{{ contact.lastName }}</b></p>
+<p>{{ 'email.contact.contentIdentity.firstName'|trans }} <b>{{ contact.firstName }}</b></p>
+<p>{{ 'email.contact.contentIdentity.email'|trans }} <b>{{ contact.email }}</b></p>
+<p>{{ 'email.contact.contentIdentity.tel'|trans }} <b>{{ contact.phone }}</b></p><br/>
+<p><u>{{ 'email.contact.contentComment'|trans }} </u></p>
+<p>{{ contact.comment }}</p>
+{% include 'Email/Base/footer.html.twig' %}

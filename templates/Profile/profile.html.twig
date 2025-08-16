@@ -1,0 +1,48 @@
+<div class="modal fade" id="profileModalPicture" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel"
+     aria-hidden="true">
+    <!-- Change class .modal-sm to change the size of the modal -->
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content form-elegant">
+            <div class="modal-header text-center">
+                <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="profileModalLabel">{{ 'modal.profilePicture.title'|trans }}</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="col-12 modal-body">
+                {{ form_start(form, {'attr': {'id': 'form-profile-picture'}})}}
+                <div class="row mx-4">
+                    <div class="col-12">
+                        <div class="md-form">
+                            <div class="file-field">
+                                <div class="btn btn-primary btn-sm float-left">
+                                    <span>{{ 'btn.chooseFile'|trans}}</span>
+                                    {{ form_widget(form.avatar) }}
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="{{ 'btn.upload'|trans}}">
+                                </div>
+                            </div>
+                        </div>
+                        {{ form_errors(form.avatar) }}
+                    </div>
+                    <div class="col-12">
+                        <img width="100%" src="" alt="" id="avatar">
+                    </div>
+                    <input type="hidden" id="crop-picture" name="crop-picture">
+                </div>
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-4">
+                        <button class="btn btn-danger btn-rounded btn-block mt-2 mb-0" type="button" id="btn-cancel">{{ 'btn.cancel'|trans }}</button>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-primary btn-rounded btn-block mt-2 mb-0" type="button" id="btn-submit">{{ 'btn.submit'|trans }}</button>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+

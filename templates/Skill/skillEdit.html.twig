@@ -1,0 +1,54 @@
+
+<div id="modal-skill" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-formation-label"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">{{ 'modal.skill.title'|trans }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                {{ form_start(form, {'attr': {'id': 'form-skill'}})}}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="md-form">
+                            {{ form_widget(form.skillSection) }}
+                            <button class="mdb-autocomplete-clear">
+                                <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                    <path d="M0 0h24v24H0z" fill="none" />
+                                </svg>
+                            </button>
+                            {{ form_label(form.skillSection) }}
+                        </div>
+                        {{ form_errors(form.skillSection) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="md-form">
+                            {{ form_widget(form.skillName) }}
+                            <button class="mdb-autocomplete-clear">
+                                <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                    <path d="M0 0h24v24H0z" fill="none" />
+                                </svg>
+                            </button>
+                            {{ form_label(form.skillName) }}
+                        </div>
+                        {{ form_errors(form.skillName) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <button class="btn btn-primary btn-rounded btn-block mt-2 mb-0" type="submit">{{ 'btn.submit'|trans }}</button>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>

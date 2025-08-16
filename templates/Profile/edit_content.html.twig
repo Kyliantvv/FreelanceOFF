@@ -1,0 +1,206 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="row" id="profileEdit">
+    <div class="col-12 pt-4">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1 offset-0 pb-5">
+                <div class="card testimonial-card">
+                    <div class="card-up indigo lighten-1"></div>
+                    <!-- Avatar -->
+                    {% if app.user.avatar is not empty %}
+                        <div class="avatar mx-auto white">
+                            <a href="#" id="changeProfile"><img src="{{ app.user.avatarContent }}" class="rounded-circle" alt="{{ app.user.identity }}"></a>
+                        </div>
+                    {% else %}
+                        <div class="avatar mx-auto white">
+                            <a href="#" id="changeProfile" class="d-flex align-items-center justify-content-center"><i class="fas fa-user fa-7x"></i></a>
+                        </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <form action="{{ path('profile_edit') }}" method="POST" class="fos_user_profile_edit">
+                            <div class="form-group" id="fos_user_registration_form">
+                                {{ form_widget(form._token) }}
+                                <div class="row">
+                                    <div class="col-12 text-left">
+                                        <h4><i class="fas fa-user-tie mr-2 ml-4"></i>{{ 'form.information'|trans }}</h4>
+                                    </div>
+                                </div>
+                                <hr class="my-2 mx-3">
+                                <div class="row mx-4">
+                                    <div class="col-6">
+                                        <div class="md-form">
+                                            {{ form_label(form.firstName) }}
+                                            {{ form_widget(form.firstName, { 'attr': {'class': 'form-control' } }) }}
+                                        </div>
+                                        {{ form_errors(form.firstName) }}
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="md-form">
+                                            {{ form_label(form.lastName) }}
+                                            {{ form_widget(form.lastName, { 'attr': {'class': 'form-control' } }) }}
+                                        </div>
+                                        {{ form_errors(form.lastName) }}
+                                    </div>
+                                </div>
+                                <div class="row mx-4">
+                                    <div class="col-12">
+                                        <div class="md-form">
+                                            {{ form_label(form.birthday) }}
+                                            {{ form_widget(form.birthday, { 'attr': {'class': 'form-control' } }) }}
+                                        </div>
+                                        {{ form_errors(form.birthday) }}
+                                    </div>
+                                </div>
+                                {% if user.resume is not null %}
+                                    <div class="row mx-4">
+                                        <div class="col-12">
+                                            {{ form_label(form.idJobSection) }}
+                                            {{ form_widget(form.idJobSection) }}
+                                            {{ form_errors(form.idJobSection) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mx-4">
+                                        <div class="col-12">
+                                            <div class="md-form">
+                                                {{ form_label(form.title) }}
+                                                {{ form_widget(form.title, { 'attr': {'class': 'form-control' } }) }}
+                                            </div>
+                                            {{ form_errors(form.title) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mx-4">
+                                        <div class="col-12">
+                                            <div class="md-form">
+                                                {{ form_label(form.description) }}
+                                                {{ form_widget(form.description, { 'attr': {'class': 'form-control' } }) }}
+                                            </div>
+                                            {{ form_errors(form.description) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mx-4">
+                                        <div class="col-12">
+                                            <div class="md-form">
+                                                {{ form_label(form.tjm) }}
+                                                {{ form_widget(form.tjm, { 'attr': {'class': 'form-control' } }) }}
+                                            </div>
+                                            {{ form_errors(form.tjm) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mx-4">
+                                        <div class="col-12">
+                                            {{ form_label(form.seniority) }}
+                                            {{ form_widget(form.seniority) }}
+                                            {{ form_errors(form.seniority) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mx-4">
+                                        <div class="col-12">
+                                            {{ form_label(form.workerStatusType) }}
+                                            {{ form_widget(form.workerStatusType) }}
+                                            {{ form_errors(form.workerStatusType) }}
+                                        </div>
+                                    </div>
+
+                                    <div class="row pt-4">
+                                        <div class="col-12 text-left">
+                                            <h4><i class="fas fa-map-marker-alt mr-2 ml-4"></i>{{ 'form.address'|trans }}</h4>
+                                        </div>
+                                    </div>
+                                    <hr class="my-2 mx-3">
+                                    <div class="row mx-4">
+                                        <div class="col-12">
+                                            <div class="md-form">
+                                                {{ form_label(form.address) }}
+                                                {{ form_widget(form.address, { 'attr': {'class': 'form-control' } }) }}
+                                            </div>
+                                            {{ form_errors(form.address) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mx-4">
+                                        <div class="col-4">
+                                            <div class="md-form">
+                                                {{ form_label(form.zipCode) }}
+                                                {{ form_widget(form.zipCode, { 'attr': {'class': 'form-control' } }) }}
+                                            </div>
+                                            {{ form_errors(form.zipCode) }}
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="md-form">
+                                                {{ form_label(form.city) }}
+                                                {{ form_widget(form.city, { 'attr': {'class': 'form-control' } }) }}
+                                            </div>
+                                            {{ form_errors(form.city) }}
+                                        </div>
+                                    </div>
+                                    <div class="row mx-4">
+                                        <div class="col-12">
+                                            {{ form_label(form.idCountry) }}
+                                            {{ form_widget(form.idCountry) }}
+                                            {{ form_errors(form.idCountry) }}
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                <div class="row pt-4">
+                                    <div class="col-12 text-left">
+                                        <h4><i class="fas fa-envelope mr-2 ml-4"></i>{{ 'form.contact'|trans }}</h4>
+                                    </div>
+                                </div>
+                                <hr class="my-2 mx-3">
+                                <div class="row mx-4">
+                                    <div class="col-12">
+                                        <div class="md-form">
+                                            {{ form_label(form.email) }}
+                                            {{ form_widget(form.email, { 'attr': {'class': 'form-control' } }) }}
+                                        </div>
+                                        {{ form_errors(form.email) }}
+                                    </div>
+                                </div>
+                                <div class="row mx-4">
+                                    <div class="col-12 text-left">
+                                        {{ form_label(form.phone) }}
+                                        <div class="md-form">
+                                            {{ form_widget(form.phone) }}
+                                        </div>
+                                        {{ form_errors(form.phone) }}
+                                    </div>
+                                </div>
+                                <div class="row mx-4">
+                                    <div class="col-12 text-left">
+                                        {{ form_label(form.mobilePhone) }}
+                                        <div class="md-form">
+                                            {{ form_widget(form.mobilePhone) }}
+                                        </div>
+                                        {{ form_errors(form.mobilePhone) }}
+                                    </div>
+                                </div>
+
+                                <hr class="my-4">
+                                <div class="col-12">
+                                    <div class="row md-form mb-1">
+                                        <i class="fal fa-key prefix"></i>
+                                        {{ form_label(form.current_password, 'form.current_password') }}
+                                        {{ form_widget(form.current_password, { 'attr': {'class': 'form-control' } }) }}
+                                        {{ form_errors(form.current_password) }}
+                                        {% if error is defined and error == "error.currentPassword" %}
+                                            <ul>
+                                                <li>{{ 'fos_user.current_password.invalid'|trans([], 'validators') }}</li>
+                                            </ul>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10">
+                                    <button class="btn btn-primary btn-rounded btn-block mt-2 mb-0" type="submit">{{ 'profile.edit.submit'|trans }}</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

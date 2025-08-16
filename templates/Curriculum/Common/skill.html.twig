@@ -1,0 +1,56 @@
+{% set from_user_admin = false %}
+{% for role in app.user.getRoles() %}
+    {% if role == 'ROLE_ADMIN' %}{% set from_user_admin = true %}{% endif %}
+    {% if role == 'ROLE_SUPER_ADMIN' %}{% set from_user_admin = true %}{% endif %}
+{% endfor %}
+<div class="card my-4" id="skill-section{% if from_user_admin == true %}{{ "-" ~ app.request.get('resume').id }}{% endif %}">
+    <div class="card-body">
+        <div class="col-12">
+            <div class="row mb-4">
+                <div class="col-11">
+                    <h2>{{ 'index.skill'|trans }}</h2>
+                </div>
+                <div class="col-1">
+                    <a id="btn-create-skill" class="btn-floating btn-primary d-flex align-items-center justify-content-center my-0" title="{{ 'index.btn.createSkill'|trans }}"><i class="fas fa-plus text-white"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Skill -->
+        {% if skillList is not empty %}
+            {% set skillSectionName = null %}
+            {% for skillSection,skills in skillList %}
+                {% if skillSectionName is null or skillSectionName != skillSection %}
+                    {% if skillSectionName is not null %}
+                        <hr class="mx-5">
+                    {% endif %}
+                    {% set skillSectionName = skillSection %}
+                    <div class="col-12 text-left">
+                        <h5 class="text-black-50">{{ skillSection }}</h5>
+                        <hr class="mt-0">
+                    </div>
+                {% endif %}
+                <div class="col-12">
+                    <div class="row">
+                        {% for skill in skills %}
+                            <div class="col-6 text-left">
+                                <a class="text-decoration-none text-black" id="skill-link-{{ skill.id }}">
+                                    <div class="row">
+                                        <div class="col-12 mt-2">
+                                            <h5 class="col-12">
+                                                <strong>{{ skill.IdSkillToSection.idSkill.skillName }}</strong>
+                                                <span class="" id="skill-delete-btn-{{ skill.id }}">
+                                                                        <span class="btn-floating btn-danger btn-sm d-flex align-items-center justify-content-center my-0 float-right" title="{{ 'btn.delete'|trans }}"><i class="fas fa-trash text-white"></i></span>
+                                                                    </span>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

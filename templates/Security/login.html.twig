@@ -1,0 +1,214 @@
+{% extends "bundles/FOSUserBundle/layout.html.twig" %}
+
+{% block title %}{{ 'login.title'|trans({}, 'FOSUserBundle') }}{% endblock %}
+
+{% block alternates %}
+
+    <link rel="alternate" href="{{ base_url }}/login" hreflang="x-default"/>
+    <link rel="alternate" href="{{ base_url }}/fr/login" hreflang="fr"/>
+    <link rel="alternate" href="{{ base_url }}/en/login" hreflang="en"/>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        @font-face {
+            font-family: "NexaXBold";
+            src: url("../../Fonts/Fontfabric - NexaXBold.otf") format("opentype");
+        }
+        @font-face {
+            font-family: "NexaBold";
+            src: url("../../Fonts/Fontfabric - NexaBold.otf") format("opentype");
+        }
+        @font-face {
+            font-family: "NexaBook";
+            src: url("../../Fonts/Fontfabric - NexaBook.otf") format("opentype");
+        }
+        @font-face {
+            font-family: "NexaLight";
+            src: url("../../Fonts/Fontfabric - NexaLight.otf") format("opentype");
+        }
+        .title {
+            font-family: 'NexaXBold';
+            font-size: 30px;
+            color: #162a4c;
+        }
+        .checkbox-remember-me {
+            font-family: "NexaBook";
+            font-size: 15px;
+            color: #445980;
+        }
+        .btn-link {
+            font-size: 15px;
+            font-family: "NexaXBold";
+            color: #0d6eed;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        .freelanceOfficerBlack {
+            color: rgba(22, 42, 76, 1);
+            font-weight: 700;
+            font-style: normal;
+            font-size: 18.00px;
+            font-family: "NexaBold";
+            letter-spacing: 0.23em;
+            text-decoration: none;
+        }
+        .freelanceOfficerBlue {
+            color: rgba(13, 110, 237, 1);
+            font-weight: 700;
+            font-style: normal;
+            font-size: 18.00px;
+            font-family: "NexaBold";
+            letter-spacing: 0.23em;
+            text-decoration: none;
+            margin-left: -10px;
+        }
+        .freelanceOfficerRed {
+            color: rgba(255, 92, 87, 1);
+            font-weight: 700;
+            font-style: normal;
+            font-size: 18.00px;
+            font-family: "NexaBold";
+            letter-spacing: 0.23em;
+            text-decoration: none;
+            margin-left: -10px;
+        }
+        .freelanceOfficerYellow {
+            color: rgba(244, 188, 51, 1);
+            font-weight: 700;
+            font-style: normal;
+            font-size: 18.00px;
+            font-family: "NexaBold";
+            letter-spacing: 0.23em;
+            text-decoration: none;
+            margin-left: -10px;
+        }
+    </style>
+{% endblock %}
+
+{% block navbar %}
+    {#    {% if APP_MODE is constant("App\\Enum\\AppModeTypeEnum::FREELANCE") %}#}
+    {#        {% include 'Menu/Freelance/navbarPresentation.html.twig' %}#}
+    {#    {% elseif APP_MODE is constant("App\\Enum\\AppModeTypeEnum::ENTERPRISE") %}#}
+    {#        {% include 'Menu/Enterprise/navbarPresentation.html.twig' %}#}
+    {#    {% endif %}#}
+{% endblock %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+    <form action="{{ path('app_login') }}" method="post">
+
+        <div class="row">
+            <div class="fixed-action-btn smooth-scroll" style="top: 45px; right: 24px;">
+                <a href="{{ path('index_presentation') }}" class="btn-floating btn d-flex align-items-center justify-content-center float-right mr-2 my-0">
+                    <i class="fal fa-times fa-2x text-black-50"></i>
+                </a>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-12 text-center my-5">
+                <p class="text-center freelanceOfficerBlack">
+                    FREELANCE&nbsp;
+                    <strong class="freelanceOfficerBlue">OF </strong>
+                    <strong class="freelanceOfficerRed">FIC </strong>
+                    <strong class="freelanceOfficerYellow">ER</strong>
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <h1 class="col-12 text-center title">{{ 'login.connectionTitleFreelance'|trans({}, 'FOSUserBundle') }}</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 col-12 offset-xl-2 offset-lg-2 offset-md-1 offset-sm-1 offset-0">
+                <div class="card">
+                    <div class="card-body">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+                        {% if error %}
+                            <div class="col-12 text-danger text-center">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                        <div class="row md-form md-outline ml-2 mr-2">
+                            <i class="fal fa-user prefix"></i>
+                            <label for="email">{{ 'security.login.email'|trans }}</label>
+                            <input type="text" id='email' class="form-control" name="email" value="{{ last_username }}" required="required" />
+                        </div>
+                        <div class="row md-form md-outline ml-2 mr-2">
+                            <i class="fal fa-lock prefix"></i>
+                            <label for="password">{{ 'security.login.password'|trans }}</label>
+                            <input type="password" id='password' class="form-control" name="password" required="required" />
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check pl-0">
+                                <input type="checkbox" class="form-check-input" id="remember_me" name="_remember_me" checked>
+                                <label class="form-check-label checkbox-remember-me" for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-10">
+                                <button class="btn btn-dark col-12" type="submit" id="_submit" name="_submit">{{ 'security.login.submit'|trans }}</button>
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-5">
+                                <hr/>
+                            </div>
+                            <div class="col-2 text-center mt-1">
+                                {{ 'security.login.or'|trans }}
+                            </div>
+                            <div class="col-5">
+                                <hr/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 text-center">
+                                <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" class="btn btn-primary btn-block">
+                                    <i class="fab fa-facebook-square mr-2"></i><span>{{ 'security.login.facebook'|trans }}</span>
+                                </a>
+                            </div>
+                            <div class="col-6 text-center">
+                                <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}" class="btn btn-danger btn-block">
+                                    <i class="fab fa-google mr-2"></i><span>{{ 'security.login.google'|trans }}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <div class="row mt-2 mb-4">
+        <div class="col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1 offset-0">
+            <div class="row">
+                {#                <div class="col-4 text-center">#}
+                {#                    <a href="{% if APP_MODE is constant("App\\Enum\\AppModeTypeEnum::FREELANCE") %}{{ path('index_presentation') }}{% else %}{{ path('index_enterprise_presentation') }}{% endif %}">#}
+                {#                        {{ 'security.login.appNameFreelance'|trans }}#}
+                {#                    </a>#}
+                {#                </div>#}
+                <div class="col-6 text-center">
+                    <a href="{% if APP_MODE is constant("App\\Enum\\AppModeTypeEnum::FREELANCE") %}{{ path('app_register') }}{% else %}{{ path('app_register', {"mode":"enterprise"}) }}{% endif %}" class="btn-link">{{ 'security.login.register'|trans }}</a>
+                </div>
+                <div class="col-6 text-center">
+                    <a href="{{ path('app_password_reset_request') }}" class="btn-link">{{ 'login.forgetPassword'|trans }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock fos_user_content %}
+
+{% block footer %}
+    {% include "Footer/footer.html.twig" %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

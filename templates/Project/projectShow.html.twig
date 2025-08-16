@@ -1,0 +1,129 @@
+
+{% extends 'base.html.twig' %}
+
+{% block alternates %}
+
+    <link rel="alternate" href="{{ base_url }}/project-information" hreflang="x-default"/>
+    <link rel="alternate" href="{{ base_url }}/en/project-information" hreflang="en"/>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('Project/projectInformation') }}
+{% endblock %}
+
+{% block title %}{{ app.user.identity }} | {{ 'menu.brandFreelance'|trans }}{% endblock %}
+
+{% block navbar %}
+    {% if app.user.hasRole(constant("App\\Enum\\RoleModeTypeEnum::ROLE_ENTERPRISE")) %}
+        {% include 'Menu/Enterprise/navbar.html.twig' %}
+    {% else %}
+        {% include 'Menu/Freelance/navbar.html.twig' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="row mastercontent">
+        <div class="col-12 pt-4">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 col-12 offset-lg-1 offset-md-1 offset-0 mb-5">
+                    <div class="card testimonial-card">
+                        <!-- Avatar -->
+                        {% if project.idEnterprise.logo is not empty %}
+                            <div class="avatar mx-auto white">
+                                <img src="{{ project.idEnterprise.logo }}" class="rounded-circle" alt="{{ project.idEnterprise.name }}">
+                            </div>
+                        {% endif %}
+                        <!-- Card content -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="offset-1 col-10">
+                                    <h3>{{ project.projectName }}</h3>
+                                </div>
+                                {% if project.idJobSection %}
+                                <div class="offset-1 col-10">
+                                    <h6><i>{{ project.idJobSection.sectionName }}</i></h6>
+                                </div>
+                                {% endif %}
+                                <div class="offset-1 col-10">
+                                    <h7>{{ project.idEnterprise.name }}</h7>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-6 text-left">
+{#                                    {% if project.idEnterprise.idUser and project.idEnterprise.idUser.resume.city %}#}
+{#                                        <h4><i class="fal fa-map-marked mr-2"></i>{{ project.idEnterprise.idUser.resume.city }}</h4>#}
+{#                                    {% endif %}#}
+                                </div>
+                                <div class="col-6 text-right">
+                                    {% if project.duration %}
+                                        <h4><i class="fal fa-alarm-clock mr-2"></i>{{ ("project.form.duration.choices."~project.duration)|trans }}</h4>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-12 text-left"><u><h5>{{ 'project.form.description'|trans }}</h5></u></div>
+                                <div class="col-12 text-left mt-2 ml-3">{{ project.description }}</div>
+                            </div>
+                            {% if project.profileResources|length > 0 %}
+                                <div class="row mt-4">
+                                    {% if project.profileResources|length > 1 %}
+                                        <div class="col-12 text-left"><u><h5>{{ 'project.form.profil'|trans }}</h5></u></div>
+                                    {% else %}
+                                        <div class="col-12 text-left"><u><h5>{{ 'project.form.profils'|trans }}</h5></u></div>
+                                    {% endif %}
+                                    {% set length = project.profileResources|length %}
+                                    {% set i = 0 %}
+                                    {% for profile in project.profileResources %}
+                                        {% set i = i + 1 %}
+                                        <div class="offset-1 col-10 text-left mt-2">{{ profile.profileType }}</div>
+                                        <div class="offset-1 col-5 text-left"><i class="fal fa-money-check-edit-alt mr-2"></i>{{ profile.salaryNet }}</div>
+                                        <div class="col-5 text-right"><i class="fal fa-user-clock mr-2"></i>{{ ('profileResources.form.contractType.choices.'~profile.contractType)|trans }}</div>
+                                        <div class="offset-1 col-10 text-left">{{ profile.comment }}</div>
+                                        {% if i < length %}
+                                            <hr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            <div class="row mt-4">
+                                <div class="col-12 text-left"><u><h5>{{ 'project.form.contact'|trans }}</h5></u></div>
+                                <div class="offset-1 col-10 text-left mt-2 mb-2"><u>{{ project.idEnterprise.name }}</u></div>
+                                <div class="offset-1 col-10 text-left"><i class="fas fa-map-marker-alt"></i>
+                                    {% if project.idEnterprise.idUser.address is defined and project.idEnterprise.idUser.address is not empty %}
+                                        {{ project.idEnterprise.idUser.address }}{% if (project.idEnterprise.idUser.city is not empty or project.idEnterprise.idUser.idCountry is not empty) %},{% endif %}
+                                    {% endif %}
+                                    {% if (project.idEnterprise.idUser.city is defined and project.idEnterprise.idUser.city is not empty) %}
+                                        {{ project.idEnterprise.idUser.city }}{% if project.idEnterprise.idUser.idCountry is defined and project.idEnterprise.idUser.idCountry is not empty %} {{ project.idEnterprise.idUser.idCountry.countryName }}{% endif %}
+                                    {% elseif (project.idEnterprise.idUser.idCountry is defined and project.idEnterprise.idUser.idCountry is not empty) %}
+                                        {{ project.idEnterprise.idUser.idCountry.countryName }}
+                                    {% endif %}
+                                </div>
+                                {% if project.idEnterprise.idUser %}
+                                    <div class="offset-1 col-10 text-left">{{ project.idEnterprise.idUser.lastName }} {{ project.idEnterprise.idUser.firstName }}</div>
+                                {% endif %}
+                                <div class="offset-1 col-10 text-left"><i class="fas fa-envelope mr-2"></i><a href="mailto:{{ project.email }}">{{ project.email }}</a></div>
+                                {% if project.idEnterprise.idUser %}
+                                    {% if project.idEnterprise.idUser.phone %}
+                                        <div class="col-5 text-left"><i class="fas fa-mobile-alt mr-2"></i><a href="tel:{{ project.idEnterprise.idUser.phone|phone_number_format('INTERNATIONAL') }}">{{ project.idEnterprise.idUser.phone|phone_number_format('NATIONAL') }}</a></div>
+                                    {% endif %}
+                                    {% if project.idEnterprise.idUser.mobilePhone %}
+                                        <div class="col-5 text-left"><i class="fas fa-mobile-alt mr-2"></i><a href="tel:{{ project.idEnterprise.idUser.mobilePhone|phone_number_format('INTERNATIONAL') }}">{{ project.idEnterprise.idUser.mobilePhone|phone_number_format('NATIONAL') }}</a></div>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ path('bazinga_jstranslation_js', { 'domain': 'project', 'locales': app.request.locale }) }}"></script>
+    {{ encore_entry_script_tags('Project/projectInformation') }}
+{% endblock %}

@@ -1,0 +1,145 @@
+
+{#{% extends 'base.html.twig' %}#}
+
+{#{% block alternates %}#}
+
+{#    <link rel="alternate" href="{{ base_url }}/" hreflang="x-default"/>#}
+{#    <link rel="alternate" href="{{ base_url }}/fr/" hreflang="fr"/>#}
+{#    <link rel="alternate" href="{{ base_url }}/en/" hreflang="en"/>#}
+
+{#{% endblock %}#}
+
+{#{% block stylesheets %}#}
+{#    {{ encore_entry_link_tags('Formation/formation') }}#}
+{#{% endblock %}#}
+
+{#{% block title %}{% endblock %}#}
+{#{% block navbar %}#}
+{#    {% if app.user is defined %}#}
+{#        {% include 'Menu/navbar.html.twig' %}#}
+{#    {% else %}#}
+{#        {% include 'Menu/navbarPresentation.html.twig' %}#}
+{#    {% endif %}#}
+{#{% endblock %}#}
+
+{#{% block content %}#}
+
+<div id="modal-formation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-formation-label"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">{{ 'modal.formation.title'|trans }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                {{ form_start(form, {'attr': {'id': 'form-formation'}})}}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="md-form">
+                            {{ form_widget(form.school) }}
+                            <button class="mdb-autocomplete-clear">
+                                <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                    <path d="M0 0h24v24H0z" fill="none" />
+                                </svg>
+                            </button>
+                            {% if form.school.vars.value is not empty %}
+                                {{ form_label(form.school, 'formation.form.idSchool', { 'label_attr': {'class': 'active' } }) }}
+                            {% else %}
+                                {{ form_label(form.school) }}
+                            {% endif %}
+                        </div>
+                        {{ form_errors(form.school) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="md-form">
+                            {% if form.degree.vars.value is not empty %}
+                                {{ form_label(form.degree, 'formation.form.degree', { 'label_attr': {'class': 'active' } }) }}
+                            {% else %}
+                                {{ form_label(form.degree) }}
+                            {% endif %}
+                            {{ form_widget(form.degree) }}
+                        </div>
+                        {{ form_errors(form.degree) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="md-form">
+                            {% if form.studiesField.vars.value is not empty %}
+                                {{ form_label(form.studiesField, 'formation.form.studiesField', { 'label_attr': {'class': 'active' } }) }}
+                            {% else %}
+                                {{ form_label(form.studiesField) }}
+                            {% endif %}
+                            {{ form_widget(form.studiesField) }}
+                        </div>
+                        {{ form_errors(form.studiesField) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        {{ form_label(form.beginYear) }}
+                        {{ form_widget(form.beginYear, {'attr': {'searchable': 'project.form.searchCombo'|trans}}) }}
+                        {{ form_errors(form.beginYear) }}
+                    </div>
+                    <div class="col-6">
+                        {{ form_label(form.endYear) }}
+                        {{ form_widget(form.endYear, {'attr': {'searchable': 'project.form.searchCombo'|trans}}) }}
+                        {{ form_errors(form.endYear) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="md-form">
+                            {% if form.hobbies.vars.value is not empty %}
+                                {{ form_label(form.hobbies, 'formation.form.hobbies', { 'label_attr': {'class': 'active' } }) }}
+                            {% else %}
+                                {{ form_label(form.hobbies) }}
+                            {% endif %}
+                            {{ form_widget(form.hobbies) }}
+                        </div>
+                        {{ form_errors(form.hobbies) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="md-form">
+                            {% if form.description.vars.value is not empty %}
+                                {{ form_label(form.description, 'formation.form.description', { 'label_attr': {'class': 'active' } }) }}
+                            {% else %}
+                                {{ form_label(form.description) }}
+                            {% endif %}
+                            {{ form_widget(form.description) }}
+                        </div>
+                        {{ form_errors(form.description) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2"></div>
+                    {% if creation == false %}
+                        <div class="col-4">
+                            <button class="btn btn-danger btn-rounded btn-block mt-2 mb-0" type="button" id="btn-delete">{{ 'btn.delete'|trans }}</button>
+                        </div>
+                        <div class="col-4">
+                    {% else %}
+                        <div class="col-8">
+                    {% endif %}
+                        <button class="btn btn-primary btn-rounded btn-block mt-2 mb-0" type="submit">{{ 'btn.submit'|trans }}</button>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{#{% endblock %}#}
+
+{#{% block javascripts %}#}
+{#    {{ encore_entry_script_tags('Formation/formation') }}#}
+{#{% endblock %}#}

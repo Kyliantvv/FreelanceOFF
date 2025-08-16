@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale|split('_')[0] }}">
+<head>
+    <title>
+        {% block title %}{{ 'menu.brandFreelance'|trans }}{% endblock %}
+    </title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    {% block alternates %}{% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('base') }}
+    {% endblock %}
+</head>
+<body>
+{% block navbar %}{% endblock %}
+<div class="container">
+    {% block flash_messages %}
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="row alert alert-{{ type }} alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    {{ message | raw }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endblock %}
+    {% block content %}{% endblock %}
+</div>
+{% block javascripts %}
+    {{ encore_entry_script_tags('base') }}
+{% endblock %}
+</body>
+{% block footer %}
+{% endblock %}
+</html>

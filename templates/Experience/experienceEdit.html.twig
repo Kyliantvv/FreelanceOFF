@@ -1,0 +1,140 @@
+
+
+<div id="modal-experience" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-experience-label"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">{{ 'modal.experience.title'|trans }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                {{ form_start(form, {'attr': {'id': 'form-experience'}})}}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="md-form">
+                            {% if form.experienceName.vars.value is not empty %}
+                                {{ form_label(form.experienceName, 'experience.form.experienceName', { 'label_attr': {'class': 'active' } }) }}
+                            {% else %}
+                                {{ form_label(form.experienceName) }}
+                            {% endif %}
+                            {{ form_widget(form.experienceName) }}
+                        </div>
+                        {{ form_errors(form.experienceName) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="md-form ui-widget">
+                            {{ form_widget(form.enterprise, { 'attr': {'class': 'form-control mdb-autocomplete' } }) }}
+                            <button class="mdb-autocomplete-clear">
+                                <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                    <path d="M0 0h24v24H0z" fill="none" />
+                                </svg>
+                            </button>
+                            {% if form.enterprise.vars.value is not empty %}
+                                {{ form_label(form.enterprise, 'experience.form.idEnterprise', { 'label_attr': {'class': 'active' } }) }}
+                            {% else %}
+                                {{ form_label(form.enterprise) }}
+                            {% endif %}
+                        </div>
+                        {{ form_errors(form.enterprise) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        {{ form_label(form.idCountry) }}
+                        {{ form_widget(form.idCountry, {'attr': {'searchable': 'project.form.searchCombo'|trans}}) }}
+                        {{ form_errors(form.idCountry) }}
+                    </div>
+                    <div class="col-6">
+                        <div class="md-form">
+                            {% if form.city.vars.value is not empty %}
+                                {{ form_label(form.city, 'experience.form.city', { 'label_attr': {'class': 'active' } }) }}
+                            {% else %}
+                                {{ form_label(form.city) }}
+                            {% endif %}
+                            {{ form_widget(form.city) }}
+                        </div>
+                        {{ form_errors(form.city) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-check mr-1 pl-0">
+                            {{ form_widget(form.isCurrentExperience) }}
+                        </div>
+                        {{ form_errors(form.isCurrentExperience) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <label>{{ 'experience.form.beginDate'|trans }}</label>
+                            </div>
+                            <div class="col-6">
+                                {{ form_label(form.beginMonth) }}
+                                {{ form_widget(form.beginMonth) }}
+                                {{ form_errors(form.beginMonth) }}
+                            </div>
+                            <div class="col-6">
+                                {{ form_label(form.beginYear) }}
+                                {{ form_widget(form.beginYear) }}
+                                {{ form_errors(form.beginYear) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6" id="endDateSection">
+                        <div class="row">
+                            <div class="col-12">
+                                <label>{{ 'experience.form.endDate'|trans }}</label>
+                            </div>
+                            <div class="col-6">
+                                {{ form_label(form.endMonth) }}
+                                {{ form_widget(form.endMonth) }}
+                                {{ form_errors(form.endMonth) }}
+                            </div>
+                            <div class="col-6">
+                                {{ form_label(form.endYear) }}
+                                {{ form_widget(form.endYear) }}
+                                {{ form_errors(form.endYear) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="md-form">
+                            {% if form.experienceDescription.vars.value is not empty %}
+                                {{ form_label(form.experienceDescription, 'experience.form.experienceDescription', { 'label_attr': {'class': 'active' } }) }}
+                            {% else %}
+                                {{ form_label(form.experienceDescription) }}
+                            {% endif %}
+                            {{ form_widget(form.experienceDescription) }}
+                        </div>
+                        {{ form_errors(form.experienceDescription) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2"></div>
+                    {% if creation == false %}
+                        <div class="col-4">
+                            <button class="btn btn-danger btn-rounded btn-block mt-2 mb-0" type="button" id="btn-delete">{{ 'btn.delete'|trans }}</button>
+                        </div>
+                        <div class="col-4">
+                    {% else %}
+                        <div class="col-8">
+                    {% endif %}
+                            <button class="btn btn-primary btn-rounded btn-block mt-2 mb-0" type="submit">{{ 'btn.submit'|trans }}</button>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+

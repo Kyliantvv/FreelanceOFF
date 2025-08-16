@@ -1,0 +1,60 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="row">
+    <div class="fixed-action-btn smooth-scroll" style="top: 45px; right: 24px;">
+        <a href="{{ path('index_presentation') }}" class="btn-floating btn d-flex align-items-center justify-content-center float-right mr-2 my-0">
+            <i class="fal fa-times fa-2x text-black-50"></i>
+        </a>
+    </div>
+</div>
+<div class="row pt-5">
+    <div class="col-12 text-center my-5">
+        <p class="text-center freelanceOfficerBlack">
+            FREELANCE&nbsp;
+            <strong class="freelanceOfficerBlue">OF </strong>
+            <strong class="freelanceOfficerRed">FIC </strong>
+            <strong class="freelanceOfficerYellow">ER</strong>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <h1 class="col-12 text-center title">{{ 'reset.resetTitle'|trans({}, 'FOSUserBundle') }}</h1>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1 offset-0">
+        <div class="card">
+            <div class="card-body">
+                {{ form_start(form) }}
+                {% if invalid_username is defined %}
+                    <div class="row">
+                        <p class="col-12">{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
+                    </div>
+                {% endif %}
+                <div class="row md-form md-outline ml-2 mr-2">
+                    <i class="fal fa-user prefix"></i>
+                    {{ form_label(form.email, 'form.email', {'translation_domain': 'FOSUserBundle'}) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.email) }}
+                </div>
+                <div class="row">
+                    <div class="offset-1"></div>
+                    <div class="col-10">
+                        <button class="btn btn-primary btn-block" type="submit">{{ 'resetting.request.submit'|trans }}</button>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-12 text-center">
+        <p class="col-12 text-center mb-0 already-have-account">{{ 'layout.alreadyHaveAccount'|trans }}</p>
+        <a class="connect-link" href="{{ path('app_login') }}">
+            {{ 'layout.login'|trans }}
+        </a>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+
+
+<div id="modal-profileResources" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-profileResources-label"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="profileResources">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">{{ 'modal.profileResources.title'|trans }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                {{ form_start(form, {'attr': {'id': 'form-profileResources'}})}}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="md-form">
+                            {{ form_label(form.profileType) }}
+                            {{ form_widget(form.profileType) }}
+                        </div>
+                        {{ form_errors(form.profileType) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="md-form">
+                            {{ form_label(form.salaryNet) }}
+                            {{ form_widget(form.salaryNet) }}
+                        </div>
+                        {{ form_errors(form.salaryNet) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        {{ form_label(form.contractType) }}
+                        {{ form_widget(form.contractType) }}
+                        {{ form_errors(form.contractType) }}
+                    </div>
+                </div>
+                {% if form.idResume is defined %}
+                <div class="row">
+                    <div class="col-12">
+                        {{ form_label(form.idResume) }}
+                        {{ form_widget(form.idResume, {'attr': {'searchable': 'project.form.searchCombo'|trans}}) }}
+                        {{ form_errors(form.idResume) }}
+                    </div>
+                </div>
+                {% endif %}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="md-form">
+                            {{ form_label(form.comment) }}
+                            {{ form_widget(form.comment) }}
+                        </div>
+                        {{ form_errors(form.comment) }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-2"></div>
+                    {% if creation == false %}
+                    <div class="col-4">
+                        <button class="btn btn-danger btn-rounded btn-block mt-2 mb-0" type="button" id="btn-profileResources-delete">{{ 'btn.delete'|trans }}</button>
+                    </div>
+                    <div class="col-4">
+                    {% else %}
+                        <div class="col-8">
+                            {% endif %}
+                            <button class="btn btn-primary btn-rounded btn-block mt-2 mb-0" type="submit">{{ 'btn.submit'|trans }}</button>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

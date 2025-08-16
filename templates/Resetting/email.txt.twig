@@ -1,0 +1,19 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% if datamail.plain == true %}
+    {% block subject %}
+    {% autoescape false %}
+    {{ 'resetting.email.subject'|trans }}
+    {% endautoescape %}
+    {% endblock %}
+    {% block body_text %}
+        {% autoescape false %}
+           {{ 'resetting.email.message'|trans({'%username%': datamail.user.firstName, '%confirmationUrl%': datamail.confirmationUrl}) }}
+        {% endautoescape %}
+    {% endblock %}
+{% else %}
+    {% block body_html %}
+        {% include 'Email/Base/header.html.twig' %}
+        {% include 'Resetting/email.html.twig' %}
+        {% include 'Email/Base/footer.html.twig' %}
+    {% endblock %}
+{% endif %}

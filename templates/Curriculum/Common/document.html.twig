@@ -1,0 +1,63 @@
+<div class="card mt-4" id="document-section">
+    <div class="card-body">
+        <div class="col-12">
+            <div class="row mb-4">
+                <div class="col-11">
+                    <h2>{{ 'index.document'|trans }}</h2>
+                </div>
+                <div class="col-1">
+                    <a id="btn-create-document" class="btn-floating btn-primary d-flex align-items-center justify-content-center my-0" title="{{ 'index.btn.createdocument'|trans }}"><i class="fas fa-plus text-white"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Document -->
+        {% if documents is not empty %}
+        {% set i = 0 %}
+        {% for document in documents %}
+        {% if i > 0 %}
+            <hr class="mx-5">
+        {% endif %}
+        {% set i = i + 1 %}
+        <div class="col-12 text-left">
+            <div class="text-decoration-none text-black" id="document-link-{{ document.id }}">
+                <div class="row">
+                    <div class="col-1">
+                        <i class="far fa-file fa-2x"></i>
+                    </div>
+                    <div class="col-11">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3>{{ ('document.form.documentType.value.'~document.documentType)|trans }}
+                                    <span>
+                                        <span class="btn-floating btn-warning btn-sm d-flex align-items-center justify-content-center my-0 float-right" id="document-edit-btn-{{ document.id }}" title="{{ 'btn.edit'|trans }}">
+                                            <i class="fas fa-pencil text-white"></i>
+                                        </span>
+                                      {% if document.brochureFilename is not empty %}
+                                        <a  href="{{ path('document-form-show', {document: document.id}) }}" class="btn-floating btn-elegant btn-sm d-flex align-items-center justify-content-center my-0 float-right" id="document-see-btn-{{ document.id }}" title="{{ 'btn.see'|trans }}">
+                                            <i class="fas fa-eye text-white"></i>
+                                        </a>
+                                      {% endif %}
+                                    </span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                {% set cles = document.commentaireCle|split(',') %}
+                                {% for cle in cles %}
+                                    {% if cle is not empty %}
+                                        <div class="chip">
+                                            {{ cle }}
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            {% endfor %}
+            {% endif %}
+    </div>
+</div>

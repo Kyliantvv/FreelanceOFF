@@ -1,0 +1,30 @@
+
+{% extends 'base.html.twig' %}
+
+{% block alternates %}
+
+    <link rel="alternate" href="{{ base_url }}/search" hreflang="x-default"/>
+    <link rel="alternate" href="{{ base_url }}/search" hreflang="fr"/>
+    <link rel="alternate" href="{{ base_url }}/en/search" hreflang="en"/>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('Search/search') }}
+{% endblock %}
+
+{% block navbar %}
+    {% include 'Menu/Freelance/navbar.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <div class="mt-2" id="react" data-id="{{ { query: query, querySection: querySection, results: result|json_encode }|json_encode|e('html_attr') }}">
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ path('bazinga_jstranslation_js', { 'domain': 'widget', 'locales': app.request.locale }) }}"></script>
+    {{ encore_entry_script_tags('Search/search') }}
+{% endblock %}

@@ -1,0 +1,161 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block alternates %}
+
+    <link rel="alternate" href="{{ base_url }}/register" hreflang="x-default"/>
+    <link rel="alternate" href="{{ base_url }}/fr/register" hreflang="fr"/>
+    <link rel="alternate" href="{{ base_url }}/en/register" hreflang="en"/>
+
+{% endblock %}
+
+<div class="row">
+    <div class="fixed-action-btn smooth-scroll" style="top: 45px; right: 24px;">
+        <a href="{{ path('index_presentation') }}" class="btn-floating btn d-flex align-items-center justify-content-center float-right mr-2 my-0">
+            <i class="fal fa-times fa-2x text-black-50"></i>
+        </a>
+    </div>
+</div>
+<div class="row pt-2">
+    <div class="col-12 text-center my-5">
+        <p class="text-center freelanceOfficerBlack">
+            FREELANCE&nbsp;
+            <strong class="freelanceOfficerBlue">OF </strong>
+            <strong class="freelanceOfficerRed">FIC </strong>
+            <strong class="freelanceOfficerYellow">ER</strong>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <h1 class="col-12 text-center title">{{ 'register.registerTitleFreelance'|trans }}</h1>
+    <h4 class="col-8 offset-2 text-center mb-5 sub-title">{{ 'register.registerSubtitleFreelance'|trans }}</h4>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1 offset-0">
+        <div class="card">
+            <div class="card-body">
+                <form action="{% if APP_MODE is constant("App\\Enum\\AppModeTypeEnum::FREELANCE") %}{{ path('app_register') }}{% else %}{{ path('app_register', {"mode":"enterprise"}) }}{% endif %}" method="POST" class="fos_user_registration_request">
+                    <div class="form-group" id="fos_user_registration_form">
+                        <div class="col-12">
+                            <div class="row mt-0">
+                                <div class="col-12 px-0">
+                                    {{ form_label(form.civility, 'form.civility', {'translation_domain': 'FOSUserBundle'}) }}
+                                    {{ form_widget(form.civility, {'attr': {'class': 'mdb-select md-form colorful-select dropdown-primary'}}) }}
+                                    {{ form_errors(form.civility) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <div class="md-form md-outline form-lg row mr-md-2 mt-0">
+                                        {{ form_label(form.lastName, 'form.lastName', {'translation_domain': 'FOSUserBundle'}) }}
+                                        {{ form_widget(form.lastName, {'attr': {'class': 'form-control-lg'}}) }}
+                                        {{ form_errors(form.lastName) }}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <div class="md-form md-outline form-lg row ml-md-2 mt-0">
+                                        {{ form_label(form.firstName, 'form.firstName', {'translation_domain': 'FOSUserBundle'}) }}
+                                        {{ form_widget(form.firstName, {'attr': {'class': 'form-control-lg'}}) }}
+                                        {{ form_errors(form.firstName) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row md-form md-outline form-lg mt-0">
+                                {{ form_label(form.email, 'form.email', {'translation_domain': 'FOSUserBundle'}) }}
+                                {{ form_widget(form.email, {'attr': {'class': 'form-control-lg'}}) }}
+                                {{ form_errors(form.email) }}
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <div class="md-form md-outline form-lg row mr-md-2 mt-0">
+                                        {{ form_label(form.plainPassword.first, 'form.password', {'translation_domain': 'FOSUserBundle'}) }}
+                                        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control-lg'}}) }}
+                                        {{ form_errors(form.plainPassword.first) }}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <div class="md-form md-outline form-lg row ml-md-2 mt-0">
+                                        {{ form_label(form.plainPassword.second, 'form.password_confirmation', {'translation_domain': 'FOSUserBundle'}) }}
+                                        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control-lg'}}) }}
+                                        {{ form_errors(form.plainPassword.second) }}
+                                    </div>
+                                </div>
+                            </div>
+                            {% if APP_MODE is  constant('App\\Enum\\AppModeTypeEnum::ENTERPRISE') %}
+                                <div class="row md-form">
+                                    <h5 class=" col-12 text-center">{{ 'form.enterprise.title'|trans }}</h5>
+                                </div>
+                                <div class="row md-form md-outline form-lg mt-0">
+                                    {{ form_label(form.enterprise.name, 'form.enterprise.name', {'translation_domain': 'FOSUserBundle'}) }}
+                                    {{ form_widget(form.enterprise.name, {'attr': {'class': 'form-control-lg'}}) }}
+                                    {{ form_errors(form.enterprise.name) }}
+                                </div>
+                                <div class="row md-form md-outline form-lg mt-0">
+                                    {{ form_label(form.enterprise.email, 'form.enterprise.email', {'translation_domain': 'FOSUserBundle'}) }}
+                                    {{ form_widget(form.enterprise.email, {'attr': {'class': 'form-control-lg'}}) }}
+                                    {{ form_errors(form.enterprise.email) }}
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <div class="md-form md-outline form-lg row mr-md-2 mt-0">
+                                            {{ form_label(form.enterprise.contactUsualName, 'form.enterprise.contactUsualName', {'translation_domain': 'FOSUserBundle'}) }}
+                                            {{ form_widget(form.enterprise.contactUsualName, {'attr': {'class': 'form-control-lg'}}) }}
+                                            {{ form_errors(form.enterprise.contactUsualName) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+                                        <div class="md-form md-outline form-lg row ml-md-2 mt-0">
+                                            {{ form_label(form.enterprise.contactFirstName, 'form.enterprise.contactFirstName', {'translation_domain': 'FOSUserBundle'}) }}
+                                            {{ form_widget(form.enterprise.contactFirstName, {'attr': {'class': 'form-control-lg'}}) }}
+                                            {{ form_errors(form.enterprise.contactFirstName) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <div class="row">
+                                <div class="col-lg-4 col-md-3 col-sm-3"></div>
+                                <div class="col mx-auto px-auto">
+                                    {{ form_widget(form.recaptcha) }}
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="form-check mr-1 pl-0">
+                                    {{ form_widget(form.cgu) }}
+                                    {{ form_label(form.cgu, 'form.cgu', {'label_attr': {'class': 'checkbox-cgu'}}) }}
+                                </div>
+                                <a href="{{ path('legal_notice') }}" target="_blank" class="cgv">{{ 'form.cguName'|trans }}</a>
+                                {{ form_errors(form.cgu) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-1"></div>
+                        <div class="col-10">
+                            <button class="btn btn-primary btn-block" type="submit">{{ 'registration.submit'|trans }}</button>
+                        </div>
+                    </div>
+                    {{ form_widget(form._token) }}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row text-center mt-4 mb-4">
+    <div class="col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1 offset-0">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="col-12 text-center mb-0 already-have-account">{{ 'layout.alreadyHaveAccount'|trans }}</p>
+                <a class="connect-link" href="{% if APP_MODE is constant("App\\Enum\\AppModeTypeEnum::FREELANCE") %}{{ path('app_login') }}{% else %}{{ path('app_login', {"mode":"enterprise"}) }}{% endif %}">
+                    {{ 'layout.login'|trans }}
+                </a>
+            </div>
+            {#            <div class="col-6 text-center">#}
+            {#                <a href="{% if APP_MODE is constant("App\\Enum\\AppModeTypeEnum::FREELANCE") %}{{ path('index_presentation') }}{% else %}{{ path('index_enterprise_presentation') }}{% endif %}">#}
+            {#                    {{ 'security.login.appNameFreelance'|trans }}#}
+            {#                </a>#}
+            {#            </div>#}
+        </div>
+    </div>
+</div>

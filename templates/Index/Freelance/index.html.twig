@@ -1,0 +1,163 @@
+
+{% extends 'base.html.twig' %}
+
+{% block alternates %}
+
+    <link rel="alternate" href="{{ base_url }}/" hreflang="x-default"/>
+    <link rel="alternate" href="{{ base_url }}/fr/" hreflang="fr"/>
+    <link rel="alternate" href="{{ base_url }}/en/" hreflang="en"/>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('Index/index') }}
+{% endblock %}
+
+{% block title %}{{ app.user.identity }} | {{ 'menu.brandFreelance'|trans }}{% endblock %}
+
+{% block navbar %}
+    {% include 'Menu/Freelance/navbar.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <div class="row mastercontent">
+        <div class="col-12 pt-4">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1 offset-0">
+                    <div class="card testimonial-card">
+                        <div class="card-up indigo lighten-1"></div>
+                        <!-- Avatar -->
+                        {% if app.user.avatar is not empty %}
+                            <div class="avatar mx-auto white">
+                                <img src="{{ app.user.avatarContent }}" class="rounded-circle" alt="{{ app.user.identity }}">
+                            </div>
+                        {% else %}
+                            <div class="avatar mx-auto white">
+                                <span class="d-flex align-items-center justify-content-center text-primary"><i class="fas fa-user fa-7x"></i></span>
+                            </div>
+                        {% endif %}
+                        <div class="card-body">
+                            <!-- Name -->
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10">
+                                    <h3 class="card-title">{{ app.user.identity }}</h3>
+                                </div>
+                                <div class="col-1">
+                                    {#                                    <a href="{{ path('fos_user_profile_edit') }}" title="{{ 'btn.edit'|trans }}" class="btn-floating btn-primary btn-sm float-right d-flex align-items-center justify-content-center my-0"><i class="fas fa-pencil text-white"></i></a>#}
+                                </div>
+                                {% if resume.title is not empty %}
+                                    <div class="col-12">
+                                        <span class="mb-0">{{ resume.title }}</span>
+                                    </div>
+                                {% endif %}
+
+                                {% if resume.seniority is not empty %}
+                                    <div class="col-6">
+                                        <h5 class="mb-0"><i class="fal fa-graduation-cap"></i> {{ ('resume.form.seniority.choices.'~resume.seniority)|trans }}</h5>
+                                    </div>
+                                {% endif %}
+                                {% if resume.tjm is not empty %}
+                                    <div class="col-6">
+                                        <h5 class="mb-0"><i class="fas fa-comments-dollar"></i> {{ resume.tjm }} <i class="fal fa-euro-sign"></i></h5>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <hr class="mt-1">
+                            <!-- Description -->
+                            {% if resume.description is not empty %}
+                                <div class="col-12">
+                                    <p><i class="fas fa-quote-left"></i> {{ resume.description }}</p>
+                                </div>
+                                <hr>
+                            {% endif %}
+                            <!-- Address -->
+                            <div class="col-12">
+                                <h4>
+                                    {% if (resume.city is not empty or resume.idCountry is not empty or resume.address is not empty) %}
+                                    <i class="fas fa-map-marker-alt mr-2"></i><small>
+                                        {% endif %}
+                                        {% if resume.address is defined and resume.address is not empty %}
+                                            {{ resume.address }}{% if (resume.city is not empty or resume.idCountry is not empty) %},{% endif %}
+                                        {% endif %}
+                                        {% if (resume.city is defined and resume.city is not empty) %}
+                                            {{ resume.city }}{% if resume.idCountry is defined and resume.idCountry is not empty %} {{ resume.idCountry.countryName }}{% endif %}
+                                        {% elseif (resume.idCountry is defined and resume.idCountry is not empty) %}
+                                            {{ resume.idCountry.countryName }}
+                                        {% endif %}
+                                        {% if (resume.city is not empty or resume.idCountry is not empty or resume.address is not empty) %}
+                                    </small>
+                                    {% endif %}
+                                </h4>
+                            </div>
+                            <!-- Birthdate and mail -->
+                            <div class="col-12">
+                                <div class="row">
+                                    {% if app.user.birthdate is defined and app.user.birthdate is not empty %}
+                                        <div class="col-6">
+                                            <h4><i class="fas fa-birthday-cake mr-2"></i><small>{{ app.user.birthdate|date("d/m/Y") }}</small></h4>
+                                        </div>
+                                    {% endif %}
+                                    <div class="col-6">
+                                        <h4><i class="fas fa-envelope mr-2"></i><small><a href="mailto:{{ app.user.email }}">{{ app.user.email }}</a></small></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Phone -->
+                            <div class="col-12">
+                                <div class="row">
+                                    {% if app.user.mobilePhone is defined and app.user.mobilePhone is not empty %}
+                                        <div class="col-6">
+                                            <h4><i class="fas fa-mobile-alt mr-2"></i><small><a href="tel:{{ app.user.mobilePhone|phone_number_format('INTERNATIONAL') }}">{{ app.user.mobilePhone|phone_number_format('NATIONAL') }}</a></small></h4>
+                                        </div>
+                                    {% endif %}
+                                    {% if app.user.phone is defined and app.user.phone is not empty %}
+                                        <div class="col-6">
+                                            <h4><i class="fas fa-phone mr-2"></i><small><a href="tel:{{ app.user.phone|phone_number_format('INTERNATIONAL') }}">{{ app.user.phone|phone_number_format('NATIONAL') }}</a></small></h4>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <div class="row">
+                                    <div class="col-11" id="react"></div>
+                                    <div class="col-1">
+                                        {% if links is not empty %}
+                                            <a id="btn-edit-link" class="btn-floating btn-primary d-flex align-items-center justify-content-center my-0" title="{{ 'index.btn.editLink'|trans }}"><i class="fas fa-pencil text-white"></i></a>
+                                        {% else %}
+                                            <a id="btn-edit-link" class="btn-floating btn-primary d-flex align-items-center justify-content-center my-0" title="{{ 'index.btn.editLink'|trans }}"><i class="fas fa-plus text-white"></i></a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% if links is not empty %}
+                                <div class="col-12">
+                                    <div class="row">
+                                        {% for link in links %}
+                                            <div class="col-6">
+                                                <h4>{{ ('index.link.linkType.'~link.linkType)|trans|raw }}<small><a href="{{ link.uriLink }}" target="_blank">{{ link.uriLink }}</a></small></h4>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    {% include 'Curriculum/Common/document.html.twig' %}
+                    {% include 'Curriculum/Common/experience.html.twig' %}
+                    {% include 'Curriculum/Common/formation.html.twig' %}
+                    {% include 'Curriculum/Common/skill.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ path('bazinga_jstranslation_js') }}"></script>
+    {{ encore_entry_script_tags('Index/index') }}
+{% endblock %}

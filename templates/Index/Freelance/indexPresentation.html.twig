@@ -1,0 +1,36 @@
+
+{% extends 'base.html.twig' %}
+
+{% block alternates %}
+
+    <link rel="alternate" href="{{ base_url }}/" hreflang="x-default"/>
+    <link rel="alternate" href="{{ base_url }}/fr/" hreflang="fr"/>
+    <link rel="alternate" href="{{ base_url }}/en/" hreflang="en"/>
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('Index/indexPresentation') }}
+{% endblock %}
+
+{% block navbar %}
+    {% include 'Menu/Freelance/navbarPresentation.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="justify-content-center col-12">
+            <div id="contentPresentation" data-freelance="{{ constant('App\\Enum\\AppModeTypeEnum::FREELANCE') }}" data-enterprise="{{ constant('App\\Enum\\AppModeTypeEnum::ENTERPRISE') }}"></div>
+            {% include 'Index/Freelance/indexPresentationFooter.html.twig' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ path('bazinga_jstranslation_js') }}"></script>
+    {{ encore_entry_script_tags('Index/indexPresentation') }}
+{% endblock %}

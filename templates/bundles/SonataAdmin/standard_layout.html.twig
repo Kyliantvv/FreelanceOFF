@@ -1,0 +1,129 @@
+{% extends '@SonataAdmin/standard_layout.html.twig' %}
+
+{#{% block meta_tags %}#}
+{#    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v=3" />#}
+{#{% endblock %}#}
+
+{#{% block sonata_nav %}#}
+{#    <nav class="navbar navbar-static-top" role="navigation">#}
+{#        <a href="#" class="sidebar-toggle" data-toggle="offcanvas"#}
+{#           role="button" title="{{ 'toggle_navigation'|trans({}, 'SonataAdminBundle') }}">#}
+{#            <i class="fas fa-bars"></i>#}
+{#            <span class="sr-only">{{ 'toggle_navigation'|trans({}, 'SonataAdminBundle') }}</span>#}
+{#        </a>#}
+
+{#        <div class="navbar-left">#}
+{#            {% block sonata_breadcrumb %}#}
+{#                {% if _breadcrumb is not empty or action is defined %}#}
+{#                    <ol class="nav navbar-top-links breadcrumb">#}
+{#                        {% if _breadcrumb is empty %}#}
+{#                            {% if action is defined %}#}
+{#                                {% for menu in admin.breadcrumbs(action) %}#}
+{#                                    {% if not loop.last  %}#}
+{#                                        <li>#}
+{#                                            {% if menu.uri is not empty %}#}
+{#                                                {% if menu.label != 'link_breadcrumb_dashboard' %}#}
+{#                                                    <a href="{{ menu.uri }}">{{ menu.label|trans }}</a>#}
+{#                                                {% else %}#}
+{#                                                    <a href="{{ menu.uri }}"><i class="fa fa-home"></i></a>#}
+{#                                                {% endif %}#}
+{#                                            {% else %}#}
+{#                                                {{ menu.label }}#}
+{#                                            {% endif %}#}
+{#                                        </li>#}
+{#                                    {% else %}#}
+{#                                        <li class="active"><span>{{ menu.label|trans }}</span></li>#}
+{#                                    {% endif %}#}
+{#                                {% endfor %}#}
+{#                            {% endif %}#}
+{#                        {% else %}#}
+{#                            {{ _breadcrumb|raw }}#}
+{#                        {% endif %}#}
+{#                    </ol>#}
+{#                {% endif %}#}
+{#            {% endblock sonata_breadcrumb %}#}
+{#        </div>#}
+
+{#        {% block sonata_top_nav_menu %}#}
+{#            <div class="navbar-right">#}
+{#                <ul class="nav navbar-nav">#}
+{#                    <li class="dropdown">#}
+{#                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">#}
+{#                            <i class="fa fa-plus-square fa-fw"></i> <i class="fa fa-caret-down"></i>#}
+{#                        </a>#}
+{#                        {% include admin_pool.getTemplate('add_block') %}#}
+{#                    </li>#}
+{#                </ul>#}
+{#                <ul class="nav navbar-nav">#}
+{#                    <li class="dropdown">#}
+{#                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">#}
+{#                    <span>#}
+{#                        {% if app.user %}#}
+{#                            {{ app.user.email }}#}
+{#                        {% endif %}#}
+{#                    </span>#}
+{#                            <i class="fa fa-caret-down"></i>#}
+{#                        </a>#}
+{#                        <ul class="dropdown-menu">#}
+{#                            <li><a href="{{ path('index_presentation') }}"><span class="fa fa-home" style="margin-right: 5px;"></span><span>{{ 'menu.brandFreelance'|trans }}</span></a></li>#}
+{#                            <li><a href="{{ path('show_profile') }}"><span class="fa fa-cog" style="margin-right: 5px;"></span><span>{{ 'menu.items.accountManager'|trans }}</span></a></li>#}
+{#                            #}{#<li><a href="{{ path('establishment_information_page_locale') }}"><span class="fa fa-building" style="margin-right: 5px;"></span><span>{{ 'menu.myEstablishment'|trans }}</span></a></li>#}
+{#                            #}{#<li><a href="{{ path('freedom_base_homepage_locale') }}"><i class="fa fa-home"></i>{{ 'admin.menu.home'|trans }}</a></li>#}
+{#                            #}{#<li role="separator" class="divider"></li>#}
+{#                            #}{#<li><a href="{{ path('legal_notice') }}"><span class="fa fa-file" style="margin-right: 5px;"></span><span>{{ 'menu.cgu'|trans }}</span></a></li>#}
+{#                            <li role="separator" class="divider"></li>#}
+{#                            <li><a href="{{ path('app_logout') }}"><span class="fa fa-sign-out" style="margin-right: 5px;"></span><span>{{ 'menu.items.disconnect'|trans }}</span></a></li>#}
+{#                        </ul>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </div>#}
+{#        {% endblock %}#}
+{#    </nav>#}
+{#{% endblock sonata_nav %}#}
+
+        {% block sonata_top_nav_menu %}
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    {% block sonata_top_nav_menu_user_block %}
+                    <li class="dropdown user-menu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fas fa-user fa-fw" aria-hidden="true"></i><span>{% if app.user %} {{ app.user.email }} {% endif %}</span><i class="fas fa-caret-down" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('index_presentation') }}"><span class="fa fa-home" style="margin-right: 5px;"></span><span>{{ 'menu.brandFreelance'|trans }}</span></a></li>
+                            <li><a href="{{ path('show_profile') }}"><span class="fa fa-cog" style="margin-right: 5px;"></span><span>{{ 'menu.items.accountManager'|trans }}</span></a></li>
+                            {#<li><a href="{{ path('establishment_information_page_locale') }}"><span class="fa fa-building" style="margin-right: 5px;"></span><span>{{ 'menu.myEstablishment'|trans }}</span></a></li>#}
+                            {#<li><a href="{{ path('freedom_base_homepage_locale') }}"><i class="fa fa-home"></i>{{ 'admin.menu.home'|trans }}</a></li>#}
+                            {#<li role="separator" class="divider"></li>#}
+                            {#<li><a href="{{ path('legal_notice') }}"><span class="fa fa-file" style="margin-right: 5px;"></span><span>{{ 'menu.cgu'|trans }}</span></a></li>#}
+                            <li role="separator" class="divider"></li>
+                            <li><a href="{{ path('app_logout') }}"><span class="fa fa-sign-out" style="margin-right: 5px;"></span><span>{{ 'menu.items.disconnect'|trans }}</span></a></li>
+                            <a href="{{ path('admin_v2_dashboard') }}" class="btn btn-success">
+                                🚀 Accéder à Admin V2
+                            </a>
+
+                        </ul>
+                    </li>
+                    {% endblock %}
+                </ul>
+            </div>
+        {% endblock %}
+
+{% block side_bar_after_nav %}
+    <p class="text-center"><a href="https://www.freelanceofficer.fr/">{{ 'menu.brandFreelance'|trans }}</a></p>
+{% endblock %}
+
+{#{% block stylesheets %}#}
+{#    {{ parent() }}#}
+{#    {{ encore_entry_link_tags('lib/fontawesome-pro') }}#}
+{#    <style>#}
+{#        .main-header .sidebar-toggle:before {#}
+{#            content: none;#}
+{#        }#}
+{#    </style>#}
+{#{% endblock stylesheets %}#}
+
+{#{% block javascripts %}#}
+{#    {{ parent() }}#}
+{#    {{ encore_entry_script_tags('lib/fontawesome-pro') }}#}
+{#{% endblock javascripts %}#}

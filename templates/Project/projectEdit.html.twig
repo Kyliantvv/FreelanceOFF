@@ -1,0 +1,182 @@
+
+
+<div id="modal-project" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="modal-project-label"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="project">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <ul class="nav md-pills pills-indigo">
+                    <li class="nav-item">
+                        <a id="navProject" class="nav-link active" data-toggle="tab" href="#panel11" role="tab"> {% if form.vars.value.projectType is constant("App\\Enum\\EnterpriseProjectTypeEnum::MISSION") %}{{ 'modal.project.title.mission'|trans }} {% else %}{{ 'modal.project.title.outsourcing'|trans }} {% endif %}</a>
+                    </li>
+                    <li class="nav-item">
+                        {% if creation == true %}
+                            <span id="navResource" class="nav-link" title="{{ 'modal.project.help.first'|trans }}">{% if form.vars.value.projectType is constant("App\\Enum\\EnterpriseProjectTypeEnum::MISSION") %}{{ 'modal.project.title.resourceMission'|trans }}{% else %}{{ 'modal.project.title.resourceOutsourcing'|trans }}{% endif %}</span>
+                        {% else  %}
+                        <a id="navResource" class="nav-link" data-toggle="tab" href="#panel12" role="tab">{% if form.vars.value.projectType is constant("App\\Enum\\EnterpriseProjectTypeEnum::MISSION") %}{{ 'modal.project.title.resourceMission'|trans }}{% else %}{{ 'modal.project.title.resourceOutsourcing'|trans }}{% endif %}</a>
+                        {% endif %}
+                    </li>
+                </ul>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="tab-content pt-0">
+                    <!--Panel 1-->
+                    <div class="tab-pane fade in show active" id="panel11" role="tabpanel">
+                        {{ form_start(form, {'attr': {'id': 'form-project'}})}}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="md-form">
+                                    {{ form_label(form.email) }}
+                                    {{ form_widget(form.email) }}
+                                </div>
+                                {{ form_errors(form.email) }}
+                            </div>
+                        </div>
+                        {% if form.vars.value.projectType is constant("App\\Enum\\EnterpriseProjectTypeEnum::MISSION") %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="md-form">
+                                    {{ form_label(form.projectName) }}
+                                    {{ form_widget(form.projectName) }}
+                                </div>
+                                {{ form_errors(form.projectName) }}
+                            </div>
+                        </div>
+                        {%  endif %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="md-form">
+                                    {{ form_label(form.location) }}
+                                    {{ form_widget(form.location) }}
+                                </div>
+                                {{ form_errors(form.location) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="md-form">
+                                    {{ form_label(form.duration) }}
+                                    {{ form_widget(form.duration) }}
+                                </div>
+                                {{ form_errors(form.duration) }}
+                            </div>
+                        </div>
+                        {% if form.vars.value.projectType is constant("App\\Enum\\EnterpriseProjectTypeEnum::OUTSOURCING") %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="md-form">
+                                    {{ form_label(form.startDate) }}
+                                    {{ form_widget(form.startDate) }}
+                                </div>
+                                {{ form_errors(form.startDate) }}
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="row">
+                            <div class="col-12">
+                               {{ form_label(form.idJobSection) }}
+                               {{ form_widget(form.idJobSection, {'attr': {'searchable': 'project.form.searchCombo'|trans}}) }}
+                               {{ form_errors(form.idJobSection) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="md-form">
+                                    {{ form_label(form.description) }}
+                                    {{ form_widget(form.description) }}
+                                </div>
+                                {{ form_errors(form.description) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="md-form col-12">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm float-left">
+                                        <span>{{'project.form.upload'|trans}}</span>
+                                        {{ form_widget(form.documentFile) }}
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="{{'project.form.choose'|trans}}">
+                                    </div>
+                                    {{ form_errors(form.documentFile) }}
+                                </div>
+                            </div>
+                        </div>
+                        {% if form.status is defined %}
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="md-form">
+                                    {{ form_label(form.status) }}
+                                    {{ form_widget(form.status) }}
+                                </div>
+                                {{ form_errors(form.status) }}
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if form.comment is defined %}
+                        <div class="row">
+                            <!-- TODO que pour collaborateur freedom -->
+                            <div class="col-12">
+                                <div class="md-form">
+                                    {{ form_label(form.comment) }}
+                                    {{ form_widget(form.comment) }}
+                                </div>
+                                {{ form_errors(form.comment) }}
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="row">
+                            <div class="col-2"></div>
+                        {% if creation == false %}
+                            <div class="col-4">
+                                <button class="btn btn-danger btn-rounded btn-block mt-2 mb-0" type="button" id="btn-project-delete">{{ 'btn.delete'|trans }}</button>
+                            </div>
+                            <div class="col-4">
+                        {% else %}
+                            <div class="col-8">
+                        {% endif %}
+                                <button class="btn btn-primary btn-rounded btn-block mt-2 mb-0" type="submit">{{ 'btn.submit'|trans }}</button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    <!--/.Panel 1-->
+                    </div>
+                    <!--Panel 2-->
+                   <div class="tab-pane fade" id="panel12" role="tabpanel">
+                       {% if profileResources is defined and profileResources is not null %}
+                       {% set i = 0 %}
+                           {% for profileResource in profileResources %}
+                               {% if i > 0 %}
+                                <hr class="mx-5">
+                               {% endif %}
+                               {% set i = i + 1 %}
+                               <div class="row">
+                                   <div class="col-12">
+                                    <h4>{{ profileResource.profileType  }}
+                                        <span class="btn-floating btn-warning btn-sm d-flex align-items-center justify-content-center my-0 float-right" id="profileResources-edit-btn-{{ profileResource.id }}" title="{{ 'btn.edit'|trans }}">
+                                            <i class="fas fa-pencil text-white"></i>
+                                        </span>
+                                    </h4>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-12">
+                                   <p>{{  profileResource.idResume is not null ? profileResource.idResume : profileResource.comment }}</p>
+                                   </div>
+                                </div>
+                       {% endfor %}
+                       {% endif %}
+                       <div class="row">
+                           <div class="col-12 center-block">
+                               <button class="btn btn-primary btn-rounded btn-block mt-2 mb-0" type="button" id="btn-create-profileResources">{{ 'btn.add'|trans }}</button>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

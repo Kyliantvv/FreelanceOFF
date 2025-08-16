@@ -1,0 +1,45 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-light">
+        <!-- Brand -->
+        <a class="navbar-brand" href="{{ path('index_presentation') }}">
+        <span class="row ml-5">
+            <span class="freelanceOfficerBlack">FREELANCE&nbsp;</span>
+            <span class="freelanceOfficerBlue">OF </span>
+            <span class="freelanceOfficerRed">FIC </span>
+            <span class="freelanceOfficerYellow">ER</span>
+        </span>
+        </a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+                aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mr-auto ml-4">
+                <li class="nav-item active">
+                    <a class="nav-link waves-effect" href="#accueil">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="#freelance_advantage">Avantages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" href="#freelance_qui">Qui sommes-nous ?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-effect" id="btn-contact">Contact</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item">
+                    <label class="switch"><input id="changeMode" type="checkbox"><div class="slider round"></div></label>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('app_login') }}" id="btn-menu-connect"><button type="button" class="btn btn-outline-primary btn-text-normal">{{ 'menu.items.connection'|trans }}</button></a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ path('app_register') }}" id="btn-menu-registration"><button type="button" class="btn btn-primary btn-text-normal">{{ 'menu.items.registration'|trans }}</button></a></li>
+            </ul>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,135 @@
+
+{% extends 'base.html.twig' %}
+
+{% block alternates %}
+
+    <link rel="alternate" href="{{ base_url }}/" hreflang="x-default"/>
+    <link rel="alternate" href="{{ base_url }}/" hreflang="fr"/>
+    <link rel="alternate" href="{{ base_url }}/en/" hreflang="en"/>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+    </style>
+{% endblock %}
+
+{% block navbar %}
+    <header>
+        {% include 'Menu/Enterprise/navbarPresentation.html.twig' %}
+        <!-- Full Page Intro -->
+        <div class="view py-5" style="background-image: url({{ asset('build/images/banner.jpg') }}); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            <!-- Mask & flexbox options-->
+            <div class="row pt-5 pl-4">
+                <div class="btn-group" role="buttons">
+                    <label class="btn btn-light-blue btn-rounded form-check-label">
+                        <a href="{{ path('index_presentation') }}" class="white-text">
+                            <input class="form-check-input" type="radio" name="options" id="option1" autocomplete="off" checked>
+                            <i class="fal fa-user mr-2"></i> {{ 'presentation.freelance.btn.freelance'|trans }}
+                        </a>
+                    </label>
+                    <label class="btn btn-light-blue btn-rounded form-check-label active">
+                        <input class="form-check-input" type="radio" name="options" id="option1" autocomplete="off" checked>
+                        <i class="fal fa-building mr-2"></i> {{ 'presentation.enterprise.btn.enterprise'|trans }}
+                    </label>
+                </div>
+            </div>
+            <div class="rgba-gradient align-items-center">
+                <!-- Content -->
+                <div class="container">
+                    <!--Grid row-->
+                    <div class="row">
+                        <!--Grid column-->
+                        <div class="col-12 white-text text-center text-md-left mt-xl-5 mt-5 mb-5 fadeInLeft">
+                            <div class="row">
+                                <h1 class="offset-2 col-8 h1-responsive font-weight-bold mt-sm-5 pt-5 text-center text-dark">{{ 'enterprise.title'|trans([], 'presentation') }}</h1>
+                            </div>
+                            <div class="row">
+                                <hr class="offset-2 col-8 hr-dark">
+                            </div>
+                            <h3 class="mt-5 pt-5 text-center text-dark">{{ 'enterprise.subtitle'|trans([], 'presentation') }}</h3>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <a href="{{ path('app_register') }}" class="btn btn-brown btn-rounded col">{{ 'presentation.enterprise.btn.createAccount'|trans }}</a>
+                                <a href="{{ path('app_register') }}" class="btn btn-brown btn-rounded col">{{ 'presentation.enterprise.btn.createOutsourcingccount'|trans }}</a>
+                                <button type="button" class="btn btn-brown btn-rounded col" id="btn-contact">{{ 'presentation.enterprise.btn.contact'|trans }}</button>
+                                <div class="col-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+                </div>
+                <!-- Content -->
+            </div>
+            <!-- Mask & flexbox options-->
+        </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+    <div class="col-12 py-4 mt-4">
+        <div class="row">
+            <div class="offset-1 col-5">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <h2>{{ 'enterprise.url'|trans([], 'presentation') }}</h2>
+                        <p>{{ 'enterprise.mainText'|trans([], 'presentation') }}</p>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>{{ 'enterprise.firstSectionTitle'|trans([], 'presentation') }}</h4>
+                            </div>
+                            <div class="col-12">
+                                <p>{{ 'enterprise.firstSectionText'|trans([], 'presentation')|raw }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>{{ 'enterprise.secondSectionTitle'|trans([], 'presentation') }}</h4>
+                            </div>
+                            <div class="col-12">
+                                <p>{{ 'enterprise.secondSectionText'|trans([], 'presentation')|raw }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 mt-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>{{ 'enterprise.thirdSectionTitle'|trans([], 'presentation') }}</h4>
+                            </div>
+                            <div class="col-12">
+                                <p>{{ 'enterprise.thirdSectionText'|trans([], 'presentation')|raw }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 mt-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>{{ 'enterprise.fourthSectionTitle'|trans([], 'presentation') }}</h4>
+                            </div>
+                            <div class="col-12">
+                                <p>{{ 'enterprise.fourthSectionText'|trans([], 'presentation')|raw }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <img class="col-12" src="{{ asset('build/images/cog.jpg') }}" alt="cog">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ path('bazinga_jstranslation_js') }}"></script>
+    {{ encore_entry_script_tags('Index/indexPresentation') }}
+{% endblock %}

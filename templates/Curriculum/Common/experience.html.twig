@@ -1,0 +1,69 @@
+<div class="card mt-4" id="experience-section">
+    <div class="card-body">
+        <div class="col-12">
+            <div class="row mb-4">
+                <div class="col-11">
+                    <h2>{{ 'index.experience'|trans }}</h2>
+                </div>
+                <div class="col-1">
+                    <a id="btn-create-experience" class="btn-floating btn-primary d-flex align-items-center justify-content-center my-0" title="{{ 'index.btn.createExperience'|trans }}"><i class="fas fa-plus text-white"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Experience -->
+        {% if experiences is not empty %}
+            {% set i = 0 %}
+            {% for experience in experiences %}
+                {% if i > 0 %}
+                    <hr class="mx-5">
+                {% endif %}
+                {% set i = i + 1 %}
+                <div class="col-12 text-left">
+                    <a class="text-decoration-none text-black" id="experience-link-{{ experience.id }}">
+                        <div class="row">
+                            <div class="col-1">
+                                <i class="far fa-building fa-2x"></i>
+                            </div>
+                            <div class="col-11">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h3>{{ experience.experienceName }}
+                                            <span class="" id="experience-edit-btn-{{ experience.id }}">
+                                                                    <span class="btn-floating btn-warning btn-sm d-flex align-items-center justify-content-center my-0 float-right" title="{{ 'btn.edit'|trans }}"><i class="fas fa-pencil text-white"></i></span>
+                                                                </span>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="text-black p-0 m-0">{{ experience.idEnterprise.name }}</p>
+                                        <p class="text-black-50 p-0 m-0">
+                                            {{ ('month.'~experience.beginDate|date("n"))|trans }} {{ experience.beginDate|date("Y")|trans }}
+                                            {% if experience.isCurrentExperience %}
+                                                - {{ 'index.today'|trans }}
+                                            {% elseif experience.endDate is not empty %}
+                                                - {{ ('month.'~experience.endDate|date("n"))|trans }} {{ experience.endDate|date("Y")|trans }}
+                                            {% endif %}
+                                        </p>
+                                        {% if experience.city is not empty or experience.idCountry is not empty %}
+                                            <p class="text-black-50 p-0 m-0">
+                                                {% if experience.city is not empty %}
+                                                    {{ experience.city }}{% if experience.idCountry is not empty %}, {{ experience.idCountry.countryName }}{% endif %}
+                                                {% else %}
+                                                    {{ experience.idCountry.countryName }}
+                                                {% endif %}
+                                            </p>
+                                        {% endif %}
+                                        {% if experience.experienceDescription is not empty %}
+                                            <p class="mt-2 mb-0">{{ experience.experienceDescription }}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

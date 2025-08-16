@@ -1,0 +1,18 @@
+{% block body_text %}
+    {% autoescape false %}
+        {{ 'email.contact.begin'|trans }}
+        {{ 'email.contact.contentFreelance'|trans }}
+        {{ 'email.contact.contentIdentity.name'|trans }} {{ contact.lastName }}
+        {{ 'email.contact.contentIdentity.firstName'|trans }} {{ contact.firstName }}
+        {{ 'email.contact.contentIdentity.email'|trans }} {{ contact.email }}
+        {{ 'email.contact.contentIdentity.tel'|trans }} {{ contact.phone }}
+        {{ 'email.contact.contentComment'|trans }} {{ contact.comment }}
+    {% endautoescape %}
+{% endblock %}
+
+{% block body_html %}
+    {% set urlActivation = confirmationUrl %}
+    {% include 'Email/Base/header.html.twig' %}
+    {% include 'Email/FosUserBundle/contact.html.twig' with {'urlActivation': urlActivation} %}
+    {% include 'Email/Base/footer.html.twig' %}
+{% endblock %}

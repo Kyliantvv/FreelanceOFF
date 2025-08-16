@@ -1,0 +1,19 @@
+{% block subject %}{{ 'email.accountConfirmation.object'|trans({'%username%': (user.firstName ~ " " ~ user.lastName)}) }}{% endblock %}
+
+{% block body_text %}
+    {% autoescape false %}
+        {{ 'email.accountConfirmation.begin'|trans({'%username%': user.firstName}) }}
+
+        {{ 'email.accountConfirmation.content'|trans }} {{ confirmationUrl }}
+
+        {{ 'email.accountConfirmation.salutation'|trans }}
+        {{ 'email.accountConfirmation.teamFreelance'|trans }}
+    {% endautoescape %}
+{% endblock %}
+
+{% block body_html %}
+    {% set urlActivation = confirmationUrl %}
+    {% include 'Email/Base/header.html.twig' %}
+    {% include 'Email/FosUserBundle/account_confirmation.html.twig' with {'urlActivation': urlActivation} %}
+    {% include 'Email/Base/footer.html.twig' %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "bundles/FOSUserBundle/layout.html.twig" %}
+
+{% block alternates %}
+
+    <link rel="alternate" href="{{ base_url }}/register-validation" hreflang="x-default"/>
+    <link rel="alternate" href="{{ base_url }}/fr/register-validation" hreflang="fr"/>
+    <link rel="alternate" href="{{ base_url }}/en/register-validation" hreflang="en"/>
+
+{% endblock %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}{{ 'register.title'|trans }}{% endblock %}
+
+{% block fos_user_content %}
+    <div class="row pt-2">
+        <div class="col-12 text-center"><img src="{{ asset('build/images/logoFreelance.png') }}" alt="{{ 'brand.titleFreelance'|trans }}" /></div>
+    </div>
+    <div class="row pt-3">
+        <p class="col-12 text-center">
+            {% if error is not defined %}
+            {{ 'register.validation'|trans() }}
+            {% else %}
+
+            {% endif %}
+        </p>
+    </div>
+    <div class="row text-center pt-3">
+        <a href="{{ path('app_login') }}" class="col">{{ 'layout.login'|trans }}</a>
+    </div>
+{% endblock %}

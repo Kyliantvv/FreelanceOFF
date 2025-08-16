@@ -1,0 +1,68 @@
+<div class="card my-4" id="formation-section">
+    <div class="card-body">
+        <div class="col-12">
+            <div class="row mb-4">
+                <div class="col-11">
+                    <h2>{{ 'index.formation'|trans }}</h2>
+                </div>
+                <div class="col-1">
+                    <a id="btn-create-formation" class="btn-floating btn-primary d-flex align-items-center justify-content-center my-0" title="{{ 'index.btn.createFormation'|trans }}"><i class="fas fa-plus text-white"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Formation -->
+        {% if formations is not empty %}
+            {% set i = 0 %}
+            {% for formation in formations %}
+                {% if i > 0 %}
+                    <hr class="mx-5">
+                {% endif %}
+                {% set i = i + 1 %}
+                <div class="col-12 text-left">
+                    <a class="text-decoration-none text-black" id="formation-link-{{ formation.id }}">
+                        <div class="row">
+                            <div class="col-1">
+                                <i class="far fa-school fa-2x"></i>
+                            </div>
+                            <div class="col-11">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h3>{{ formation.idSchool.name }}
+                                            <span class="" id="formation-edit-btn-{{ formation.id }}">
+                                                                    <span class="btn-floating btn-warning btn-sm d-flex align-items-center justify-content-center my-0 float-right" title="{{ 'btn.edit'|trans }}"><i class="fas fa-pencil text-white"></i></span>
+                                                                </span>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        {% if formation.degree is not empty or formation.studiesField is not empty %}
+                                            <p class="text-black p-0 m-0">
+                                                {% if formation.degree is not empty %}
+                                                    {{ formation.degree }}{% if formation.studiesField is not empty %}, {{ formation.studiesField }}{% endif %}
+                                                {% else %}
+                                                    {{ formation.studiesField }}
+                                                {% endif %}
+                                            </p>
+                                        {% endif %}
+                                        <p class="text-black-50 p-0 m-0">
+                                            {{ formation.beginYear }}
+                                            {% if formation.endYear is empty %}
+                                                - {{ 'index.today'|trans }}
+                                            {% else %}
+                                                - {{ formation.endYear }}
+                                            {% endif %}
+                                        </p>
+                                        {% if formation.description is not empty %}
+                                            <p class="mt-2 mb-0">{{ formation.description }}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

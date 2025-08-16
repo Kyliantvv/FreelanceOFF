@@ -1,0 +1,35 @@
+{% extends '@SonataAdmin/Standard/layout.html.twig' %}
+
+{% block sonata_admin_content %}
+    <h1 style="color:red">TEST : Ceci est mon dashboard personnalisé</h1>
+    {{ parent() }}
+{% endblock %}
+
+{% extends '@SonataAdmin/Standard/layout.html.twig' %}
+
+{% block sonata_admin_content %}
+    <div class="container mt-4">
+        <h1>Dashboard Admin personnalisé</h1>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="card card-body shadow-sm mb-4">
+                    <h4>Administration classique</h4>
+                    <ul>
+                        <li><a href="{{ path('admin_country_list') }}">Pays</a></li>
+                        <li><a href="{{ path('admin_app_user_list') }}">Utilisateurs</a></li>
+                        <li><a href="{{ path('admin_skill_section_list') }}">Sections de compétences</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card card-body shadow-sm mb-4">
+                    <h4>🌟 Admin V2</h4>
+                    <p>Interface améliorée et personnalisable</p>
+                    <a href="{{ path('admin_v2_dashboard') }}" class="btn btn-success">Accéder à Admin V2</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

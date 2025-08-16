@@ -1,0 +1,31 @@
+
+{% extends 'base.html.twig' %}
+
+{% block alternates %}
+
+    <link rel="alternate" href="{{ base_url }}/" hreflang="x-default"/>
+    <link rel="alternate" href="{{ base_url }}/fr/" hreflang="fr"/>
+    <link rel="alternate" href="{{ base_url }}/en/" hreflang="en"/>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('Index/indexAdmin') }}
+{% endblock %}
+
+{% block title %}{{ app.user.identity }} | {{ 'menu.brandFreelance'|trans }}{% endblock %}
+
+{% block navbar %}
+    {% include 'Menu/Freelance/navbar.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <div class="row mastercontent" id="react"></div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ path('bazinga_jstranslation_js', { 'domain': 'widget', 'locales': app.request.locale }) }}"></script>
+    {{ encore_entry_script_tags('Index/indexAdmin') }}
+{% endblock %}

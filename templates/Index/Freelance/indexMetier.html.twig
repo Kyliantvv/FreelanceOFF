@@ -1,0 +1,37 @@
+{% extends "base-react.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}{{ 'resume.titleSkill'|trans }}{% endblock %}
+
+{% block alternates %}
+    <link rel="alternate" href="{{ base_url }}/index-metier" hreflang="x-default"/>
+    <link rel="alternate" href="{{ base_url }}/fr/index-metier" hreflang="fr"/>
+    <link rel="alternate" href="{{ base_url }}/en/index-metier" hreflang="en"/>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('Index/indexMetier') }}
+{% endblock %}
+
+{% block navbar %}
+    {% if app.user.hasRole(constant("App\\Enum\\RoleModeTypeEnum::ROLE_ENTERPRISE")) %}
+        {% include 'Menu/Enterprise/navbar.html.twig' %}
+    {% else %}
+        {% include 'Menu/Freelance/navbar.html.twig' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="col-12">
+        <div id="root"></div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ path('bazinga_jstranslation_js', { 'domain': 'FOSUserBundle', 'locales': app.request.locale }) }}"></script>
+    {{ encore_entry_script_tags('Index/indexMetier') }}
+{% endblock %}

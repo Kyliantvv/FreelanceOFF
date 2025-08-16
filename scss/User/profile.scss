@@ -1,0 +1,56 @@
+// assets/css/global.scss
+
+@import "~mdbootstrap-pro/css/bootstrap.min";
+@import "~cropperjs/dist/cropper.min.css";
+
+$image-path:                                  '~mdbootstrap-pro/img';
+$roboto-font-path:                            "~mdbootstrap-pro/font/roboto/" !default;
+@import "~mdbootstrap-pro/scss/mdb";
+
+#query:focus:not([readonly]) {
+  border-color: #00c851 !important;
+}
+
+#query:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #00c851 !important;
+  box-shadow: 0 1px 0 0 #00c851 !important;
+}
+
+.picker__nav--prev:before,
+.picker__nav--next:before {
+  font-family: 'Font Awesome 5 Pro', 'Font Awesome 5 Free' !important;
+}
+
+.phone-mt-1 {
+  margin-top: 2px;
+}
+
+label.required:after {
+  content: " *"
+}
+
+.custom-checkbox>label.required:after {
+  content: ""
+}
+
+.form-elegant .font-small {
+  font-size: 0.8rem; }
+
+.form-elegant .z-depth-1a {
+  -webkit-box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25);
+  box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25); }
+
+.form-elegant .z-depth-1-half,
+.form-elegant .btn:hover {
+  -webkit-box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15); }
+
+.form-elegant .modal-header {
+  border-bottom: none; }
+
+.modal-dialog .form-elegant .btn .fab {
+  color: #2196f3!important; }
+
+.form-elegant .modal-body, .form-elegant .modal-footer {
+  font-weight: 400; }
+

@@ -1,0 +1,111 @@
+
+{% extends 'base.html.twig' %}
+
+{% block alternates %}
+
+<link rel="alternate" href="{{ base_url }}/" hreflang="x-default"/>
+<link rel="alternate" href="{{ base_url }}/fr/" hreflang="fr"/>
+<link rel="alternate" href="{{ base_url }}/en/" hreflang="en"/>
+
+{% endblock %}
+
+{% block stylesheets %}
+{{ encore_entry_link_tags('Index/index') }}
+{% endblock %}
+
+{% block title %}{{ app.user.identity }} | {{ 'menu.brandFreelance'|trans }}{% endblock %}
+
+{% block navbar %}
+{% include 'Menu/Enterprise/navbar.html.twig' %}
+{% endblock %}
+
+{% block content %}
+<div class="row mastercontent">
+    <div class="col-12 pt-4">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1 offset-0">
+                <div class="card testimonial-card">
+                    <div class="card-up indigo lighten-1"></div>
+                    <!-- Avatar -->
+                    <div class="avatar mx-auto white">
+                        <span class="d-flex align-items-center justify-content-center text-primary"><i class="fas fa-user fa-7x"></i></span>
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(form, {'attr': {'id': 'form-enterprise-curriculum-'~(creation ? 0 : app.request.get('resume').id)}})}}
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                        {{ form_label(form.civility) }}
+                                        {{ form_widget(form.civility) }}
+                                    </div>
+                                    {{ form_errors(form.civility) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                        {{ form_label(form.firstName) }}
+                                        {{ form_widget(form.firstName) }}
+                                    </div>
+                                    {{ form_errors(form.firstName) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                        {{ form_label(form.lastName) }}
+                                        {{ form_widget(form.lastName) }}
+                                    </div>
+                                    {{ form_errors(form.lastName) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    {{ form_label(form.idJobSection) }}
+                                    {{ form_widget(form.idJobSection, {'attr': {'searchable': 'project.form.searchCombo'|trans}}) }}
+                                    {{ form_errors(form.idJobSection) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="md-form">
+                                        {{ form_label(form.description) }}
+                                        {{ form_widget(form.description) }}
+                                    </div>
+                                    {{ form_errors(form.description) }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10">
+                                    <button class="btn btn-primary btn-rounded pull-right mt-2 mb-0" type="submit">{{ 'btn.submit'|trans }}</button>
+                                </div>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+
+                {% if not creation %}
+
+                {% include 'Curriculum/Common/document.html.twig' %}
+                {% include 'Curriculum/Common/experience.html.twig' %}
+                {% include 'Curriculum/Common/formation.html.twig' %}
+                {% include 'Curriculum/Common/skill.html.twig' %}
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ path('bazinga_jstranslation_js') }}"></script>
+    {{ encore_entry_script_tags('Index/index') }}
+{% endblock %}

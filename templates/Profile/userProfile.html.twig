@@ -1,0 +1,354 @@
+
+{% extends 'base.html.twig' %}
+
+{% block alternates %}
+
+    <link rel="alternate" href="{{ base_url }}/" hreflang="x-default"/>
+    <link rel="alternate" href="{{ base_url }}/fr/" hreflang="fr"/>
+    <link rel="alternate" href="{{ base_url }}/en/" hreflang="en"/>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('Resume/profile') }}
+{% endblock %}
+
+{% block title %}
+    {% if user is not null %}
+        {{ user.identity }} | {{ 'menu.brandFreelance'|trans }}
+    {% else %}
+        {{ resume.firstName }} {{ resume.lastName }} | {{ 'menu.brandFreelance'|trans }}
+    {% endif %}
+{% endblock %}
+
+{% block navbar %}
+    {% if app.user.hasRole(constant("App\\Enum\\RoleModeTypeEnum::ROLE_ENTERPRISE")) %}
+        {% include 'Menu/Enterprise/navbar.html.twig' %}
+    {% else %}
+        {% include 'Menu/Freelance/navbar.html.twig' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12 pt-4">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 col-12 offset-lg-2 offset-md-1 offset-0">
+                    <div class="card testimonial-card">
+                        <div class="card-up indigo lighten-1"></div>
+                        <!-- Avatar -->
+                        {% if user is not null and user.avatar is not empty %}
+                            <div class="avatar mx-auto white">
+                                <img src="{{ user.avatarContent }}" class="rounded-circle" alt="{{ user.identity }}">
+                            </div>
+                        {% else %}
+                            <div class="avatar mx-auto white">
+                                <span class="d-flex align-items-center justify-content-center text-primary"><i class="fas fa-user fa-7x"></i></span>
+                            </div>
+                        {% endif %}
+                        <div class="card-body">
+                            <!-- Name -->
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-10">
+                                    {% if user is not null %}
+                                        <h3 class="card-title mb-0">{{ user.identity }}</h3>
+                                    {% else %}
+                                        <h3 class="card-title mb-0">{{ resume.firstName }} {{ resume.lastName }}</h3>
+                                    {% endif %}
+                                </div>
+                                <div class="col-1">
+                                </div>
+                            </div>
+                            <hr>
+                            <!-- Description -->
+                            {% if resume is not null and resume.description is not empty %}
+                                <div class="col-12">
+                                    <p><i class="fas fa-quote-left"></i> {{ resume.description }}</p>
+                                </div>
+                                <hr>
+                            {% endif %}
+                            <!-- Address -->
+                            <div class="col-12">
+                                <h4>
+                                    {% if (resume is not null and (resume.city is not empty or resume.idCountry is not empty or resume.address is not empty)) %}
+                                    <i class="fas fa-map-marker-alt mr-2"></i><small>
+                                        {% endif %}
+                                        {% if resume.address is defined and resume.address is not empty %}
+                                            {{ resume.address }}{% if (resume.city is not empty or resume.idCountry is not empty) %},{% endif %}
+                                        {% endif %}
+                                        {% if (resume.city is defined and resume.city is not empty) %}
+                                            {{ resume.city }}{% if resume.idCountry is defined and resume.idCountry is not empty %} {{ resume.idCountry.countryName }}{% endif %}
+                                        {% elseif (resume.idCountry is defined and resume.idCountry is not empty) %}
+                                            {{ resume.idCountry.countryName }}
+                                        {% endif %}
+                                        {% if (resume is not null and (resume.city is not empty or resume.idCountry is not empty or resume.address is not empty)) %}
+                                    </small>
+                                    {% endif %}
+                                </h4>
+                            </div>
+                            <!-- Birthdate and mail -->
+                            <div class="col-12">
+                                <div class="row">
+                                    {% if resume is not null %}
+                                        {% if resume.seniority is not empty %}
+                                            <div class="col-6">
+                                                <h5 class="mb-0"><i class="fal fa-graduation-cap"></i> {{ ('resume.list.seniority.choices.'~resume.seniority)|trans }}</h5>
+                                            </div>
+                                        {% endif %}
+                                        {% if resume.tjm is not empty %}
+                                            <div class="col-6">
+                                                <h5 class="mb-0"><i class="fas fa-comments-dollar"></i> {{ resume.tjm }} <i class="fal fa-euro-sign"></i></h5>
+                                            </div>
+                                        {% endif %}
+                                        {% if resume.workerStatusType is not empty %}
+                                            <div class="col-6">
+                                                <h4 class="mb-0"><i class="fas fa-laptop-house"></i> {{ ('resume.form.workerStatusType.choices.'~resume.workerStatusType)|trans }}</h4>
+                                            </div>
+                                        {% endif %}
+                                    {% endif %}
+                                    {% if user is not null and user.birthdate is defined and user.birthdate is not empty %}
+                                        <div class="col-6">
+                                            <h4><i class="fas fa-birthday-cake mr-2"></i><small>{{ user.birthdate|date("d/m/Y") }}</small></h4>
+                                        </div>
+                                    {% endif %}
+                                    {% if user is not null %}
+                                        <div class="col-6">
+                                            <h4><i class="fas fa-envelope mr-2"></i><small><a href="mailto:{{ user.email }}">{{ user.email }}</a></small></h4>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <!-- Phone -->
+                            <div class="col-12">
+                                <div class="row">
+                                    {% if user is not null and user.mobilePhone is defined and user.mobilePhone is not empty %}
+                                        <div class="col-6">
+                                            <h4><i class="fas fa-mobile-alt mr-2"></i><small><a href="tel:{{ user.mobilePhone|phone_number_format('INTERNATIONAL') }}">{{ user.mobilePhone|phone_number_format('NATIONAL') }}</a></small></h4>
+                                        </div>
+                                    {% endif %}
+                                    {% if user is not null and user.phone is defined and user.phone is not empty %}
+                                        <div class="col-6">
+                                            <h4><i class="fas fa-phone mr-2"></i><small><a href="tel:{{ user.phone|phone_number_format('INTERNATIONAL') }}">{{ user.phone|phone_number_format('NATIONAL') }}</a></small></h4>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% if links is not empty %}
+                                <div class="col-12 mt-2">
+                                    <div class="row">
+                                        {% for link in links %}
+                                            <div class="col-6">
+                                                <h4>{{ ('index.link.linkType.'~link.linkType)|trans|raw }}<small><a href="{{ link.uriLink }}" target="_blank">{{ link.uriLink }}</a></small></h4>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+
+                    <div class="card mt-4" id="document-section">
+                        <div class="card-body">
+                            <div class="col-12">
+                                <div class="row mb-4">
+                                    <div class="col-11">
+                                        <h2>{{ 'index.document'|trans }}</h2>
+                                    </div>
+                                    <div class="col-1">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Document -->
+                            {% if documents is not empty %}
+                                {% set i = 0 %}
+                                {% for document in documents %}
+                                    {% if i > 0 %}
+                                        <hr class="mx-5">
+                                    {% endif %}
+                                    {% set i = i + 1 %}
+                                    <div class="col-12 text-left">
+                                        <div class="text-decoration-none text-black" id="document-link-{{ document.id }}">
+                                            <div class="row">
+                                                <div class="col-1">
+                                                    <i class="far fa-file fa-2x"></i>
+                                                </div>
+                                                <div class="col-11">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <h3>{{ ('document.form.documentType.value.'~document.documentType)|trans }}
+                                                                <span>
+                                                                    {% if document.brochureFilename is not empty %}
+                                                                        <a  href="{{ path('document-form-show', {document: document.id}) }}" class="btn-floating btn-elegant btn-sm d-flex align-items-center justify-content-center my-0 float-right" id="document-see-btn-{{ document.id }}" title="{{ 'btn.see'|trans }}">
+                                                                            <i class="fas fa-eye text-white"></i>
+                                                                        </a>
+                                                                    {% endif %}
+                                                                </span>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            {% set cles = document.commentaireCle|split(',') %}
+                                                            {% for cle in cles %}
+                                                                {% if cle is not empty %}
+                                                                    <div class="chip">
+                                                                        {{ cle }}
+                                                                    </div>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="card mt-4" id="experience-section">
+                        <div class="card-body">
+                            <div class="col-12">
+                                <div class="row mb-4">
+                                    <div class="col-11">
+                                        <h2>{{ 'index.experience'|trans }}</h2>
+                                    </div>
+                                    <div class="col-1">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Experience -->
+                            {% if experiences is not empty %}
+                                {% set i = 0 %}
+                                {% for experience in experiences %}
+                                    {% if i > 0 %}
+                                        <hr class="mx-5">
+                                    {% endif %}
+                                    {% set i = i + 1 %}
+                                    <div class="col-12 text-left">
+                                        <div class="row">
+                                            <div class="col-1">
+                                                <i class="far fa-building fa-2x"></i>
+                                            </div>
+                                            <div class="col-10">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <h3>{{ experience.experienceName }}</h3>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <p class="text-black p-0 m-0">{{ experience.idEnterprise.name }}</p>
+                                                        <p class="text-black-50 p-0 m-0">
+                                                            {{ ('month.'~experience.beginDate|date("n"))|trans }} {{ experience.beginDate|date("Y")|trans }}
+                                                            {% if experience.isCurrentExperience %}
+                                                                - {{ 'index.today'|trans }}
+                                                            {% elseif experience.endDate is not empty %}
+                                                                - {{ ('month.'~experience.endDate|date("n"))|trans }} {{ experience.endDate|date("Y")|trans }}
+                                                            {% endif %}
+                                                        </p>
+                                                        {% if experience.city is not empty or experience.idCountry is not empty %}
+                                                            <p class="text-black-50 p-0 m-0">
+                                                                {% if experience.city is not empty %}
+                                                                    {{ experience.city }}{% if experience.idCountry is not empty %}, {{ experience.idCountry.countryName }}{% endif %}
+                                                                {% else %}
+                                                                    {{ experience.idCountry.countryName }}
+                                                                {% endif %}
+                                                            </p>
+                                                        {% endif %}
+                                                        {% if experience.experienceDescription is not empty %}
+                                                            <p class="mt-2 mb-0">{{ experience.experienceDescription }}</p>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-1 mt-4 d-none">
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="card my-4" id="formation-section">
+                        <div class="card-body">
+                            <div class="col-12">
+                                <div class="row mb-4">
+                                    <div class="col-11">
+                                        <h2>{{ 'index.formation'|trans }}</h2>
+                                    </div>
+                                    <div class="col-1">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Formation -->
+                            {% if formations is not empty %}
+                                {% set i = 0 %}
+                                {% for formation in formations %}
+                                    {% if i > 0 %}
+                                        <hr class="mx-5">
+                                    {% endif %}
+                                    {% set i = i + 1 %}
+                                    <div class="col-12 text-left">
+                                        <div class="row">
+                                            <div class="col-1">
+                                                <i class="far fa-school fa-2x"></i>
+                                            </div>
+                                            <div class="col-10">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <h3>{{ formation.idSchool.name }}</h3>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        {% if formation.degree is not empty or formation.studiesField is not empty %}
+                                                            <p class="text-black p-0 m-0">
+                                                                {% if formation.degree is not empty %}
+                                                                    {{ formation.degree }}{% if formation.studiesField is not empty %}, {{ formation.studiesField }}{% endif %}
+                                                                {% else %}
+                                                                    {{ formation.studiesField }}
+                                                                {% endif %}
+                                                            </p>
+                                                        {% endif %}
+                                                        <p class="text-black-50 p-0 m-0">
+                                                            {{ formation.beginYear }}
+                                                            {% if formation.endYear is empty %}
+                                                                - {{ 'index.today'|trans }}
+                                                            {% else %}
+                                                                - {{ formation.endYear }}
+                                                            {% endif %}
+                                                        </p>
+                                                        {% if formation.description is not empty %}
+                                                            <p class="mt-2 mb-0">{{ formation.description }}</p>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-1 mt-4 d-none">
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    {% include 'Curriculum/Common/skill.html.twig' %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ path('bazinga_jstranslation_js') }}"></script>
+    {{ encore_entry_script_tags('Resume/profile') }}
+{% endblock %}

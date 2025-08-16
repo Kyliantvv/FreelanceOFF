@@ -1,0 +1,465 @@
+
+@font-face {
+  font-family: "NexaXBold";
+  src: url("../../Fonts/Fontfabric - NexaXBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "NexaBook";
+  src: url("../../Fonts/Fontfabric - NexaBook.otf") format("opentype");
+}
+@font-face {
+  font-family: "NexaBold";
+  src: url("../../Fonts/Fontfabric - NexaBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "NexaLight";
+  src: url("../../Fonts/Fontfabric - NexaLight.otf") format("opentype");
+}
+
+.legal-notice-section {
+  background-color: #f6fafc;
+}
+
+p {
+  font-family: "NexaBook";
+}
+
+strong {
+  font-family: "NexaBold";
+}
+
+.advantage-img {
+  max-height: 80px;
+}
+
+.btn-text-normal {
+  text-transform: none;
+  font-size: 15.00px;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "NexaXBold";
+}
+
+.btn-without-click:hover {
+  cursor: default;
+}
+
+.advantage-title {
+  text-align: center;
+  line-height: 22.00px;
+  letter-spacing: 0.22px;
+  color: rgba(22, 42, 76, 1);
+  font-size: 14.00px;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "NexaBold";
+}
+
+.advantage-text {
+  text-align: center;
+  line-height: 24.00px;
+  letter-spacing: 0.22px;
+  color: rgba(68, 89, 128, 1);
+  font-size: 14.00px;
+  font-weight: 100;
+  font-style: normal;
+  font-family: "NexaBook";
+}
+
+.who-we-are-card-background {
+  background-color: rgba(246, 250, 252, 1);
+  border-bottom-color: rgba(112, 112, 112, 1);
+  border-bottom-style: none;
+  border-bottom-width: 1.00px;
+  border-left-color: rgba(112, 112, 112, 1);
+  border-left-style: none;
+  border-left-width: 1.00px;
+  border-right-color: rgba(112, 112, 112, 1);
+  border-right-style: none;
+  border-right-width: 1.00px;
+  border-top-color: rgba(112, 112, 112, 1);
+  border-top-style: none;
+  border-top-width: 1.00px;
+}
+
+.who-we-are-text {
+  text-align: left;
+  line-height: 30.00px;
+  letter-spacing: 0.016em;
+  color: rgba(68, 89, 128, 1);
+  -webkit-text-stroke: 1.00px rgba(0, 0, 0, 0);
+  font-size: 15.00px;
+  font-weight: 100;
+  font-style: normal;
+  font-family: "NexaBook";
+}
+
+.who-we-are-img {
+  max-height: 380px;
+  width: auto;
+}
+
+.freelanceOfficer17df3a94 {
+  text-align: left;
+  color: rgba(22, 42, 76, 1);
+  -webkit-text-stroke: 1.00px rgba(0, 0, 0, 0);
+  font-size: 20.00px;
+  font-weight: 300;
+  font-style: normal;
+  font-family: "NexaLight";
+}
+
+.quiSommesNous6e91ed28 {
+  text-align: left;
+  line-height: 56.00px;
+  color: rgba(22, 42, 76, 1);
+  -webkit-text-stroke: 1.00px rgba(0, 0, 0, 0);
+  font-size: 30.00px;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "NexaBold";
+}
+
+.partner-end-banner {
+  background-color: #0d6eed;
+}
+
+.partner-title-begin {
+  color: #fff;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 18.00px;
+  font-family: "NexaLight";
+  letter-spacing: 0;
+}
+
+.partner-title-end {
+  color: #fff;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18.00px;
+  font-family: "NexaBold";
+  letter-spacing: 0;
+}
+
+.partner-img {
+  max-height: 56px;
+  width: auto;
+}
+
+.img-background-first-section {
+  background-image: url("../../images/f33d93a401b6f5fe26d916d8725b6446.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom-color: rgba(112, 112, 112, 1);
+  border-bottom-style: none;
+  border-bottom-width: 1.00px;
+  border-left-color: rgba(112, 112, 112, 1);
+  border-left-style: none;
+  border-left-width: 1.00px;
+  border-right-color: rgba(112, 112, 112, 1);
+  border-right-style: none;
+  border-right-width: 1.00px;
+  border-top-color: rgba(112, 112, 112, 1);
+  border-top-style: none;
+  border-top-width: 1.00px;
+}
+
+.form-background-first-section {
+  background: linear-gradient(120deg, rgba(22,42,76,0.9) 55%, transparent 45%)
+}
+
+.form-background-first-section-enterprise {
+  background: linear-gradient(120deg, rgba(244,188,51,0.6) 55%, transparent 45%)
+}
+
+.title-first-section {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40.00px;
+  font-family: "NexaXBold";
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+.title-color-first-section {
+  color: rgba(13, 110, 237, 1);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40.00px;
+  font-family: "NexaXBold";
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+.title-color-first-section-enterprise {
+  color: #162a4c;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40.00px;
+  font-family: "NexaXBold";
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+.btn-white {
+  color: #0d6eed;
+}
+
+.text-first-section {
+  color: #fff;
+  text-align: left;
+  line-height: 24.00px;
+  letter-spacing: 0.26px;
+  font-size: 16.00px;
+  font-weight: 100;
+  font-style: normal;
+  font-family: "NexaBook";
+}
+
+.nav-item>.nav-link {
+  color: #162A4C;
+  text-align: left;
+  line-height: 19.00px;
+  font-size: 14.00px;
+  font-style: normal;
+  font-family: "NexaBook";
+}
+
+.nav-item.active>.nav-link {
+  font-family: "NexaBold";
+  border-bottom: #0D6EED 2px solid;
+  background-color: transparent !important;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 260px;
+  height: 42px;
+  margin-top: 18px
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0d6eed;
+  -webkit-transition: .4s;
+  transition: .3s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 8px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .3s;
+  border-radius: 50%;
+  border: 2px solid #ff5c57;
+}
+
+input:checked + .slider {
+  background-color: #f4bc33;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(226px);
+  -ms-transform: translateX(226px);
+  transform: translateX(226px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.slider:after
+{
+  content:'Indépendant / Entreprise';
+  color: white;
+  display: block;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 67%;
+  width: 100%;
+}
+/*
+.slider:after {
+  content: 'Indépendant   /   Entreprise';
+  background-image: linear-gradient(0.1turn, #ff5c57,#ff5c57,#ff5c57,#ff5c57,#ff5c57,#ff5c57, #ffffff,#ffffff, #ffffff, #FFFFFF, #ffffff);
+  color: #dcd2d2;
+  -webkit-background-clip: text;
+  display: block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+*/
+
+input:checked + .slider
+{
+  background: linear-gradient(1.8turn, #f4bc33, #f4bc33, #f4bc33, #f4bc33, #f4bc33, #f4bc33, #f4bc33, #f4bc33, #f4bc33, #80888e, #80888e, #80888e, #80888e, #80888e, #80888e, #80888e, #80888e, #80888e, #80888e);
+}
+input + .slider
+{
+  background: linear-gradient(1.8turn,  #80888e,#80888e, #80888e, #80888e, #80888e, #80888e, #2196F3,#2196F3,#2196F3,#2196F3,#2196F3,#2196F3,#2196F3);
+}
+
+
+
+
+
+
+
+
+
+
+
+// CSS Footer
+
+.footerClass {
+  box-sizing: content-box;
+  opacity: 1;
+  cursor: default;
+  margin-left: 0.00px;
+  padding-left: 0.00px;
+  background-color: rgba(255, 255, 255, 0);
+  text-align: left;
+  line-height: 20.00px;
+  letter-spacing: 0.42px;
+  color: rgba(22, 42, 76, 1);
+  -webkit-text-stroke: 1.00px rgba(0, 0, 0, 0);
+  font-size: 14.00px;
+  font-weight: 300;
+  font-style: normal;
+  font-family: "NexaLight";
+  left: 0.00px;
+}
+
+.freelanceOfficerBlack {
+  color: rgba(22, 42, 76, 1);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18.00px;
+  font-family: "NexaBold";
+  letter-spacing: 0.23em;
+  text-decoration: none;
+}
+
+.freelanceOfficerBlue {
+  color: rgba(13, 110, 237, 1);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18.00px;
+  font-family: "NexaBold";
+  letter-spacing: 0.23em;
+  text-decoration: none;
+}
+
+.freelanceOfficerRed {
+  color: rgba(255, 92, 87, 1);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18.00px;
+  font-family: "NexaBold";
+  letter-spacing: 0.23em;
+  text-decoration: none;
+}
+
+.freelanceOfficerYellow {
+  color: rgba(244, 188, 51, 1);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18.00px;
+  font-family: "NexaBold";
+  letter-spacing: 0.23em;
+  text-decoration: none;
+}
+
+div.overfootertext > a:hover {
+  color: #2196F3;
+  transform: scale(1.2);
+  padding-left: 14px;
+  display: inline-block;
+}
+div.overfootertext > a {
+  color: black;
+}
+
+.footerTitle {
+  box-sizing: content-box;
+  cursor: default;
+  background-color: rgba(255, 255, 255, 0);
+  text-align: left;
+  color: rgba(22, 42, 76, 1);
+  -webkit-text-stroke: 1.00px rgba(0, 0, 0, 0);
+  font-size: 14.00px;
+  font-weight: 700;
+  font-style: normal;
+  font-family: "NexaBold";
+}
+
+.groupeTextStyle {
+  box-sizing: content-box;
+  opacity: 1;
+  cursor: default;
+  background-color: rgba(255, 255, 255, 0);
+  text-align: left;
+  letter-spacing: 0.42px;
+  color: rgba(22, 42, 76, 1);
+  -webkit-text-stroke: 1.00px rgba(0, 0, 0, 0);
+  font-size: 14.00px;
+  font-weight: 300;
+  font-style: normal;
+  font-family: "NexaLight";
+  height: 19.00px;
+}
+
+.pointer {
+  cursor: pointer !important;
+}
+
+.footerSuivezNous {
+  cursor: default;
+  background-color: rgba(255, 255, 255, 0);
+  text-align: left;
+  letter-spacing: 1.60px;
+  color: rgba(22, 42, 76, 1);
+  -webkit-text-stroke: 1.00px rgba(0, 0, 0, 0);
+  font-size: 10.00px;
+  font-weight: 300;
+  font-style: normal;
+  font-family: "NexaLight";
+}
+
+
+//Fin CSS Footer
