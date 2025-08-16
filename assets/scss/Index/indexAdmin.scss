@@ -1,0 +1,51 @@
+// assets/css/global.scss
+
+@import "~mdbootstrap-pro/css/bootstrap.min";
+
+$image-path:                                  '~mdbootstrap-pro/img';
+$roboto-font-path:                            "~mdbootstrap-pro/font/roboto/" !default;
+@import "~mdbootstrap-pro/scss/mdb";
+
+@import "~jsgrid/dist/jsgrid";
+@import "~jsgrid/dist/jsgrid-theme";
+
+@import "~jquery-ui/themes/base/all.css";
+@import "~jquery-ui/themes/base/autocomplete.css";
+
+#query:focus:not([readonly]) {
+  border-color: #00c851 !important;
+}
+
+#query:focus:not([readonly]) {
+  border-bottom: 1px solid #00c851 !important;
+  box-shadow: 0 1px 0 0 #00c851 !important;
+}
+
+.ui-state-active {
+background: #eee !important;
+color: #212529 !important;
+border: 1px solid #eee !important;
+}
+
+.picker__nav--prev:before,
+.picker__nav--next:before {
+font-family: 'Font Awesome 5 Pro', 'Font Awesome 5 Free' !important;
+}
+
+.phone-mt-1 {
+margin-top: 2px;
+}
+
+.text-black {
+color: rgba(0, 0, 0, 0.9) !important;
+}
+
+label.required:after {
+content: " *"
+}
+
+.custom-checkbox>label.required:after {
+content: ""
+}
+
+.svg-inline--fa.fa-w-11 { width: auto; margin-top: 0.49rem; }

@@ -1,0 +1,110 @@
+parameters:
+    APP_ENV: '%env(string:APP_ENV)%'
+    locale: 'fr'
+    locales: en|fr|
+    brochures_directory: '%kernel.project_dir%/uploads/'
+    PROFILE_DIRECTORY: '%env(string:PROFILE_DIRECTORY)%'
+    DEFAULT_EMAIL: '%env(string:DEFAULT_EMAIL)%'
+    DEFAULT_SENDER_NAME: '%env(string:DEFAULT_SENDER_NAME)%'
+    NOREPLY_EMAIL: '%env(string:NOREPLY_EMAIL)%'
+    OM_OAUTH_URL: '%env(string:OM_OAUTH_URL)%'
+    OM_OAUTH_CLIENT_ID: '%env(string:OM_OAUTH_CLIENT_ID)%'
+    OM_OAUTH_CLIENT_SECRET: '%env(string:OM_OAUTH_CLIENT_SECRET)%'
+    presentation_url: '%env(string:presentation_url)%'
+    google_recaptcha_site_key: '%env(GOOGLE_RECAPTCHA_SITE_KEY)%'
+    router.request_context.base_url: '/mise-relation/public/index.php'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    App\EventListener\DocumentNotifier:
+        tags:
+            - { name: 'doctrine.orm.entity_listener', event: 'postRemove', entity: 'App\Entity\Document', lazy: true, method: 'clearDocument' }
+
+    App\EventListener\ProjectNotifier:
+        tags:
+            - { name: 'doctrine.orm.entity_listener', event: 'postRemove', entity: 'App\Entity\Project', lazy: true, method: 'clearDocument' }
+
+    App\EventListener\DocumentProjectNotifier:
+        tags:
+            - { name: 'doctrine.orm.entity_listener', event: 'postRemove', entity: 'App\Entity\DocumentProject', lazy: true, method: 'clearDocument' }
+
+    my.oauth_aware.user_provider.service:
+        class: App\Security\MyEntityUserProvider
+        arguments:
+            - '@doctrine'
+            - 'App\Entity\User'
+            - {facebook: facebookID, google: googleID, profileDirectory: '%env(string:PROFILE_DIRECTORY)%', projectDir: '%kernel.project_dir%'}
+
+    admin.user:
+        class: App\Admin\UserAdmin
+        arguments: [~, App\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Utilisateurs", label: "Tous les utilisateurs", label_catalogue: messages }
+        public: true
+
+    admin.freelance:
+        class: App\Admin\FreelanceAdmin
+        arguments: [~, App\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Freelances", label: "Freelances", label_catalogue: messages }
+        public: true
+
+    admin.country:
+        class: App\Admin\CountryAdmin
+        arguments:
+            - ~
+            - App\Entity\Country
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Référentiel", label: "Pays", label_catalogue: messages }
+        public: true
+        calls:
+            - [ setTranslationDomain, [messages] ]
+
+    admin.job.section:
+        class: App\Admin\JobSectionAdmin
+        arguments:
+            - ~
+            - App\Entity\JobSection
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Référentiel", label: "Sections de job", label_catalogue: messages }
+        public: true
+        calls:
+            - [ setTranslationDomain, [messages] ]
+
+    admin.skill.section:
+        class: App\Admin\SkillSectionAdmin
+        arguments:
+            - ~
+            - App\Entity\SkillSection
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Référentiel", label: "Sections de compétence", label_catalogue: messages }
+        public: true
+        calls:
+            - [ setTranslationDomain, [messages] ]
+
+    admin.skill.skill:
+        class: App\Admin\SkillAdmin
+        arguments:
+            - ~
+            - App\Entity\Skill
+            - ~
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Référentiel", label: "Compétences", label_catalogue: messages }
+        public: true
+        calls:
+            - [ setTranslationDomain, [messages] ]
