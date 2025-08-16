@@ -1,0 +1,7 @@
+admin_dashboard_override:
+    path: /admin
+    controller: App\Controller\Admin\DashboardController::index
+
+admin_v2_dashboard:
+    path: /admin-v2
+    controller: App\Controller\Admin\AdminV2Controller::index

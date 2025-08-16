@@ -1,0 +1,87 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        in_memory: { memory: ~ }
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js|translations)/
+            security: false
+        main:
+            anonymous: lazy
+            provider: app_user_provider
+            guard:
+                authenticators:
+                    - App\Security\UserCustomAuthenticator
+            pattern: ^/
+            form_login:
+                check_path: app_login
+                login_path: app_login
+                default_target_path: index_presentation
+            logout:
+                path:       app_logout
+                target:     index_presentation
+            remember_me:
+                secret:     '%env(resolve:APP_SECRET)%'
+                path:       /
+
+            oauth:
+                resource_owners:
+                    facebook:         facebook_login
+                    google:           google_login
+                login_path:        app_login
+                use_forward:       false
+                failure_path:      app_login
+
+                oauth_user_provider:
+                    service: my.oauth_aware.user_provider.service
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/index-presentation-content, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/contact-form, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/mentions-legales, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/enterprise-presentation, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/politique-de-confidentialite, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(%locales%)/$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(%locales%)$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/connect, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/translations, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(%locales%)/contact-form$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(%locales%)/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(%locales%)/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(%locales%)/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, role: ROLE_USER }
+        - { path: ^/api, role: ROLE_USER }
+        - { path: ^/admin, role: ROLE_ADMIN  }
+
+    role_hierarchy:
+        ROLE_SONATA_BASE_STAFF:
+            - ROLE_ADMIN_COUNTRY_LIST
+            - ROLE_ADMIN_JOB_SECTION_LIST
+            - ROLE_ADMIN_SKILL_SECTION_LIST
+            - ROLE_ADMIN_USER_LIST
+        ROLE_SONATA_SUPER_ADMIN:
+            - ROLE_ADMIN_PARAMETER_ALL
+
+        ROLE_ADMIN:       [ROLE_SONATA_BASE_STAFF]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_SONATA_SUPER_ADMIN, ROLE_ALLOWED_TO_SWITCH]

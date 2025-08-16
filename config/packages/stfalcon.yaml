@@ -1,0 +1,12 @@
+stfalcon_tinymce:
+    include_jquery: true
+    tinymce_jquery: true
+    selector: ".tinymce"
+    language: '%locale%'
+    theme:
+        simple:
+            theme: "modern"
+        bbcode:
+            plugins: ["bbcode, code, link, preview"]
+            menubar: false
+            toolbar1: "bold,italic,underline,undo,redo,link,unlink,removeformat,cleanup,code,preview"
