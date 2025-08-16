@@ -1,0 +1,208 @@
+group:
+    edit:
+        submit: 'Update group'
+    show:
+        name: 'Group name'
+    new:
+        submit: 'Create group'
+    flash:
+        updated: 'The group has been updated'
+        created: 'The group has been created'
+        deleted: 'The group has been deleted'
+
+security:
+    login:
+        username: Username
+        email: Email
+        password: Password
+        remember_me: 'Remember me'
+        submit: 'Log in'
+        register: Register
+        appNameFreelance: Freelance Officer
+        cgu: Terms of use
+        or: or
+        facebook: Connect with Facebook
+        google: Connect with Google
+
+profile:
+    title: Profile
+    profileTitle: Your profile
+    profileEditTitle: Edit your profile
+    profileAdditionalInformation: Additional information
+    show:
+        username: Username
+        email: Email
+        address: Address
+        postalCode: Postal Code
+        city: City
+        civility: Civility
+        firstName: First name
+        lastName: Last name
+        phone: Phone
+        mobilePhone: Mobile phone
+        profilePicture: Picture profile
+        link:
+            linkType:
+                1: "<i class='fal fa-globe'></i> "
+                2: "<i class='fab fa-facebook'></i> "
+                3: "<i class='fab fa-twitter'></i> "
+                4: "<i class='fab fa-linkedin-in'></i> "
+                5: "<i class='fal fa-briefcase'></i> "
+        civilityCombo:
+            1: Mister
+            2: Madame
+    edit:
+        submit: Update
+    flash:
+        updated: 'The profile has been updated'
+
+change_password:
+    submit: 'Change password'
+    flash:
+        success: 'The password has been changed'
+
+registration:
+    check_email: 'An email has been sent to you. It contains an activation link you must click to activate your account.'
+    confirmed: 'Congrats %username%, your account is now activated.'
+    back: 'Back to the originating page.'
+    submit: Register
+    flash:
+        user_created: 'The user has been created successfully'
+    email:
+        subject: 'Welcome %username%!'
+        message: |
+            Hello %username%!
+
+            To finish activating your account - please visit %confirmationUrl%
+
+            Regards,
+            the Team.
+
+resetting:
+    password_already_requested: 'The password for this user has already been requested within the last 24 hours.'
+    password_request_error: 'No request has been done for your account.'
+    check_email: 'An email has been sent to %email%. It contains a link you must click to reset your password.'
+    request:
+        invalid_username: 'The username or email address "%username%" does not exist.'
+        username: 'Email address'
+        submit: 'Reset password'
+    reset:
+        submit: 'Change password'
+    flash:
+        success: 'The password has been reset successfully'
+    email:
+        subject: 'Reset Password'
+        message: |
+            Hello %username%!
+
+            To reset your password - please visit %confirmationUrl%
+
+            Regards,
+            the Team.
+
+# Global strings
+layout:
+    logout: 'Log out'
+    login: 'Log in'
+    alreadyHaveAccount: You already have an account ?
+    register: Register
+    dashboard: Dashboard
+    logged_in_as: 'Logged in as %username%'
+
+form:
+    information: 'Information'
+    contact: Contact
+    group_name: 'Group name'
+    civility: Civility
+    username: Username
+    email: Email
+    phone: Phone
+    mobilePhone: Mobile phone
+    description: Summary
+    current_password: 'Current password'
+    password: Password
+    password_confirmation: 'Repeat password'
+    new_password: 'New password'
+    new_password_confirmation: 'Repeat new password'
+    lastName: Last name
+    firstName: First name
+    profilePicture: Picture profile
+    waitTitle: Wait
+    address: Address
+    zipCode: Postal Code
+    idCountry: Country
+    idJobSection: Secteur
+    birthdate: Birthdate
+    city: City
+    cgu: 'I have read and accepted all the '
+    cguName: " terms of sale"
+    civilityCombo:
+        1: Mister
+        2: Madame
+
+login:
+    title: 'Freedom: Connection'
+    connectionTitleFreelance: Connect to your Freelance Officer account
+    forgetPassword: Forget password
+
+reset:
+    title: Reset password
+    resetTitle: Reset your forgotten password
+
+register:
+    title: Register
+    registerTitleFreelance: Register your account Freelance Officer
+    registerSubtitleFreelance: Afin de créer votre compte Freelance Officer, merci de remplir tous les champs situés dans le formulaire ci-dessous.
+    validation: Vous avez bien validez votre compte, vous pouvez utilisez pleinement nos services.
+
+leftMenu:
+    dashboard: Home
+    consumption: Current consumption
+    invoice: Invoices & Payments
+    offer: Offer & Options
+menu:
+    brandFreelance: Freelance Officer
+    accountManager: Account information
+    disconnect: Sign out
+
+brand:
+    titleFreelance: Freelance Officer
+
+resume:
+    titleSkill: Vos Métiers
+    titleResume: Résume de votre profil
+    titleCompetence: Vos compétences principales
+    titleDescribe: Décrivez vous
+    list:
+        title: "Vos compétences"
+        seniority:
+            label: Experiences
+            choices:
+                1: 1-2 years
+                2: 3-4 years
+                3: 5-10 years
+                4: 10+ years
+    form:
+        title: Titre de votre profil
+        description: Résumé
+        city: Ville
+        tjm : Votre TJM (Taux journalier moyen)
+        skill: Autres compétences
+        submit: Suivant
+    feedback:
+        error: "L'action a échoué"
+        success: "Informations sauvegardées"
+    error:
+        fetch: Impossible de charger votre profil
+
+error:
+    field:
+        number:
+            min: "La valeur ne peut être en dessous de %min%"
+            max: "La valeur ne peut être au dessus de %max%"
+        string:
+            tooShort: "Le champ doit contenir au minimum %min% caractère(s)"
+            tooLong: "Le champ doit contenir au maximum %max% caractère(s)"
+            required: Ce champ est obligatoire
+            email: L'adresse email %email% n'est pas valable
+            phone: Le numéro de téléphone n'est pas valide

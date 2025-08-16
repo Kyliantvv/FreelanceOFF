@@ -1,0 +1,420 @@
+
+menu:
+    brandFreelance: Freelance Officer
+    search: Chercher
+    searchCombo:
+        1: Freelance
+        2: Projet
+    items:
+        connection: Me connecter
+        registration: Inscription
+        accountManager: Profil
+        accountEnterprise: Mon entreprise
+        cgu: CGU
+        disconnect: Déconnexion
+        admin: Administration
+        dashboard: Tableau de bord
+
+presentation:
+    freelance:
+        btn:
+            freelance: Indépendant
+            createAccount: Déposez une candidature
+            contact: Contactez-nous
+        alt:
+            profile: Profil
+    enterprise:
+        btn:
+            enterprise: Entreprise
+            createAccount: Je recherche un expert pour une mission
+            createOutsourcingccount: Je souhaite faire de l'outsourcing
+            contact: Contactez-nous
+        alt:
+            profile: Profil
+
+btn:
+    chooseFile: Choisissez votre fichier
+    upload: Téléchargez votre fichier
+    edit: Éditer
+    cancel: Annuler
+    submit: Enregistrer
+    delete: Supprimer
+    see: Voir
+    seeDoc: Voir le document associé
+    add: Ajouter
+
+modal:
+    skill:
+        title: Compétence
+    formation:
+        title: Formation
+    experience:
+        title: Expérience
+    profilePicture:
+        title: Modifier la photo
+    document:
+        title: Document
+    project:
+        title:
+            mission: Mission
+            outsourcing: Outsourcing
+            resourceMission: Mes Ressources nécéssaires
+            resourceOutsourcing: Mes Ressources disponibles
+        help:
+            first: Créez d'abord un projet
+    profileResources:
+        title: Ressource
+
+admin:
+    groups:
+        user: Utilisateur
+        application: Application
+    entityname:
+        user: Utilisateur
+        country: Pays
+        jobSection: Secteur
+        skillSection: Catégories de compétence
+        skill: Compétences
+
+    user:
+        panel:
+            firstPanel:
+                title: Information
+                subtitleCreation: Information sur l'utilisateur
+                subtitleModification: Information sur l'utilisateur
+        list:
+            civility: Civilité
+            email: Email
+            accountStatus: Status du compte
+            expirationDate: Date d'expiration
+            lastName: Nom
+            firstName: Prénom
+            password: Mot de passe
+            enabled: Compte activé
+            lastLogin: Dernière connexion
+        civilityCombo:
+            1: M.
+            2: Mme.
+        enabledCombo:
+            0: Pas activé
+            1: Activé
+
+    country:
+        panel:
+            firstPanel:
+                title: Information
+                subtitleCreation: Information sur le pays
+                subtitleModification: Information sur le pays
+        list:
+            countryCode: Code pays
+            countryName: Nom du pays
+
+    jobSection:
+        panel:
+            firstPanel:
+                title: Information
+                subtitleCreation: Information sur le secteur
+                subtitleModification: Information sur le secteur
+        list:
+            sectionName: Nom du secteur
+
+    skillSection:
+        panel:
+            firstPanel:
+                title: Information
+                subtitleCreation: Information sur la catégorie de compétence
+                subtitleModification: Information sur la catégorie de compétence
+        list:
+            sectionName: Nom de la catégorie
+            creationAccountVisibility: Afficher sur le création de compte
+            icon: Icon
+
+    skill:
+        panel:
+            firstPanel:
+                title: Information
+                subtitleCreation: Information sur la compétence
+                subtitleModification: Information sur la compétence
+        list:
+            skillName: Nom de la compétence
+
+month:
+    1: Janvier
+    2: Février
+    3: Mars
+    4: Avril
+    5: Mai
+    6: Juin
+    7: Juillet
+    8: Août
+    9: Septembre
+    10: Octobre
+    11: Novembre
+    12: Décembre
+
+formation:
+    form:
+        idSchool: École
+        degree: Diplôme
+        studiesField: Domaine d’études
+        beginYear: Année de début
+        endYear: Année de fin (ou prévision)
+        hobbies: Activités en dehors de la formation
+        description: Description
+    alert:
+        successCreation: La formation a été créée
+        successModification: La formation a bien été modifiée
+        successDelete: La formation a bien été supprimée
+
+experience:
+    form:
+        idEnterprise: Entreprise
+        experienceName: Intitulé du poste
+        idCountry: Pays
+        city: Ville
+        isCurrentExperience: J’occupe actuellement ce poste
+        beginDate: Date de début
+        beginYear: Année
+        beginMonth: Mois
+        endDate: Date de fin
+        endYear: Année
+        endMonth: Mois
+        experienceDescription: Description
+    alert:
+        successCreation: L'expérience a été créée
+        successModification: L'expérience a bien été modifiée
+        successDelete: L'expérience a bien été supprimée
+
+skill:
+    form:
+        skillSection: Catégorie de compétence
+        skillName: Compétence
+    alert:
+        successCreation: La compétence a été créée
+        successModification: La compétence a bien été modifiée
+        successDelete: La compétence a bien été supprimée
+
+document:
+    form:
+        documentType:
+            label: Quel est le type de votre document
+            value:
+                1: CV
+                2: Plaquette Offre
+                3: Présentation
+                8: Autres
+        commentaireCle: Associer un ou plusieurs mots clé
+        brochureType: Importer un fichier PDF valide (<5M)
+        brochure: Selectionner un PDF
+        upload: Télécharger
+        choose: Choisissez un fichier PDF
+        tag:
+            add: Ajouter mot clé
+            new: Saisisez un mot clé à lié au document
+            done: entrée pour valider
+    alert:
+        successCreation: Le document a été créée
+        successModification: Le document a bien été modifiée
+        successDelete: Le document a bien été supprimée
+
+enterprise:
+    form:
+        name: Désignation de votre entreprise
+        descriptionShort: Description courte de l’entreprise
+        descriptionFull: Décrivez votre entreprise
+        secteur: Secteur
+        logo: Importer logo de l'entreprise
+        logoType: Importer une image valide
+        choose: Choisir une image (jpg/png)
+        upload: Télécharger
+        contact: "Contact d'entreprise"
+        mail: Email
+        contactTel: Tel
+        contactFirstName: Prénom
+        contactUsualName: Nom
+        url: Lien web
+        urlWeb: Site web
+        facebook: Lien Facebook
+        linkedin: Lien Linkedin
+        searchCombo: Cherchez ici
+    alert:
+        successCreation: L'entreprise a été créée
+        successModification: L'entreprise a bien été modifiée
+        successDelete: L'entreprise a bien été supprimée
+
+project:
+    form:
+        email: Email de contact
+        projectName: Intitulé de votre projet/mission
+        location: Lieu
+        duration:
+            labelMission: Durée
+            labelOutsourcing: Disponibilité
+            choices:
+                1: 1 mois
+                2: 2-3 mois
+                3: 4-6 mois
+                4: +6 mois
+        startDate: A partir de
+        idJobSection: Secteur
+        description: Description
+        contact: Contact
+        profil: Profil
+        profils: Profils
+        descriptionMission: Description de votre demande
+        descriptionOutsourcing: Commentaire
+        document: Pièce jointe
+        documentType: Choisissez un fichier PDF valide (<5M)
+        projectType:
+            label: Type de demande
+            choices:
+                1: Projet
+                2: Outsourcing
+        searchCombo: Cherchez ici
+        status:
+            label: Status de la demande
+            choices:
+                1: Déposé
+                2: En-cours
+                3: Traité
+                4: Archivé
+                5: Supprimé
+        comment: Commentaire Mon Freelance Officer
+        upload: Télécharger
+        choose: Choisir un fichier PDF
+    list:
+        outsourcing: Outsourcing au %debut% (%duree%)
+    alert:
+        successCreation: Le projet a été créée
+        successModification: Le projet a bien été modifiée
+        successDelete: Le projet a bien été supprimée
+        emptyDocDelete: Le projet a bien été supprimée, le document associé n'a pas été retrouvé
+
+profileResources:
+    form:
+        profileType: Profil
+        salaryNet: Rémunération
+        contractType:
+            label: Type de contrat
+            choices:
+                1: Plein temps
+                2: Temps partiel
+        comment: Commentaire
+        idResume: Associer un CV
+    alert:
+        successCreation: La ressource a été créée
+        successModification: La ressource a bien été modifiée
+        successDelete: La ressource a bien été supprimée
+
+resume:
+    form:
+        civility:
+            label: Civilité
+            choices:
+                1: Monsieur
+                2: Madame
+        seniority:
+            label: Expérience
+            choices:
+                1: 1-2 ans
+                2: 3-4 ans
+                3: 5-10 ans
+                4: 10+ ans
+        workerStatusType:
+            label: Type de travailleur
+            choices:
+                1: Freelance
+                2: Freelance Athena
+                3: Auto entrepreneur
+                9: Autres
+        lastName: Nom
+        firstName: Prénom
+        secteur: Secteur
+        description: Description
+    alert:
+        successCreation: Le CV a été créée
+        successModification: Le CV a bien été modifiée
+        successDelete: Le CV a bien été supprimée
+    defaultTitle: Freelance officer
+
+index:
+    document: "Documents : CV, Plaquettes commerciales, Présentations"
+    experience: Expérience
+    formation: Formation
+    skill: Compétence
+    project: Mes projets
+    enterpriseCurriculum: Outsourcing
+    today: Aujourd'hui
+    link:
+        title: "Liens vers les sites web"
+        uriLink: "URL"
+        linkTypeName:
+            1: "Site web"
+            2: "Facebook"
+            3: "Twitter"
+            4: "Linkedin"
+            5: "Indeed"
+        linkType:
+            title: "Type de lien"
+            1: "<i class='fal fa-globe'></i> "
+            2: "<i class='fab fa-facebook'></i> "
+            3: "<i class='fab fa-twitter'></i> "
+            4: "<i class='fab fa-linkedin-in'></i> "
+            5: "<i class='fal fa-briefcase'></i> "
+    btn:
+        createdocument: Nouveau document
+        createExperience: Nouvelle expérience
+        createFormation: Nouvelle formation
+        createSkill: Nouvelle compétence
+        createProject: Nouveau projet/mission
+        createOutsourcing: Nouvelle disponibilité
+        createCv: Nouveau CV
+        editLink: Éditez les liens
+
+email:
+    footer:
+        join: Rejoignez-nous !
+    accountConfirmation:
+        title: Confirmation
+        object: 'Bienvenue %username% !'
+        begin: 'Bienvenue %username%,'
+        content: 'Pour valider votre compte utilisateur, merci de vous rendre sur '
+        activate: activer
+        salutation: Cordialement,
+        teamFreelance: L'équipe Freelance Officer
+
+    resetEmail:
+        object: Réinitialiser votre mot de passe
+        link: réinitialiser votre mot de passe
+        begin: Bonjour
+        content: Vous pouvez réinitialiser votre mot de passe en cliquant
+        salutation: Cordialement,
+        team: L'équipe Mon CV Freelance
+
+    contact:
+        title: Un nouveau contact
+        begin: Bonjour
+        contentFreelance: Un nouveau contact vous écrit
+        contentIdentity:
+            name: Nom
+            firstName: Prénom
+            email: Email
+            tel: Tel
+        contentComment: Message
+    img:
+        alt:
+            company: Mon CV Freelance
+            social:
+                facebook: Facebook
+                twitter: Twitter
+                linkedin: Linkedin
+
+
+User Create: Création utilisateur
+User List: Liste utilisateur
+Country Create: Création d'un pays
+Country List: Liste des pays
+Job Section Create: Création d'une section
+Job Section List: Liste des sections
+Skill Section Create: Création d'une catégorie de compétence
+Skill Section List: Liste des catégories de compétence

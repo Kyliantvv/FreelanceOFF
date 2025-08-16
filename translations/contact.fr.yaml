@@ -1,0 +1,12 @@
+modal:
+    contact:
+        title: Contactez-nous
+        firstName: Prénom
+        lastName: Nom
+        email: Email
+        phone: Téléphone
+        comment: Votre message
+    btn:
+        submit: Enregistrer
+        send: Envoyer
+        cancel: Annuler

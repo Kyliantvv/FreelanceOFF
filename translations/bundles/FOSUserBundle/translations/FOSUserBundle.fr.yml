@@ -1,0 +1,205 @@
+group:
+    edit:
+        submit: 'Mettre à jour le groupe'
+    show:
+        name: 'Nom du groupe'
+    new:
+        submit: 'Créer le groupe'
+    flash:
+        updated: 'Le groupe a été mis à jour'
+        created: 'Le groupe a été créé'
+        deleted: 'Le groupe a été supprimé'
+security:
+    login:
+        username: 'Nom d''utilisateur'
+        password: 'Mot de passe'
+        email: Email
+        remember_me: 'Se souvenir de moi'
+        submit: Connexion
+        register: S'enregistrer
+        appNameFreelance: Freelance Officer
+        cgu: CGU
+        or: ou
+        facebook: Connexion avec Facebook
+        google: Connexion avec Google
+profile:
+    title: Profil
+    profileTitle: Votre profil
+    profileEditTitle: Éditer votre profil
+    profileAdditionalInformation: Information complémentaire
+    show:
+        username: 'Nom d''utilisateur'
+        email: 'Adresse e-mail'
+        phone: Téléphone
+        mobilePhone: Téléphone portable
+        address: Adresse
+        postalCode: Code Postal
+        city: Ville
+        civility: Civilité
+        firstName: Prénom
+        profilePicture: Photo de profil
+        lastName: Nom
+        link:
+            linkType:
+                1: "<i class='fal fa-globe'></i> "
+                2: "<i class='fab fa-facebook'></i> "
+                3: "<i class='fab fa-twitter'></i> "
+                4: "<i class='fab fa-linkedin-in'></i> "
+                5: "<i class='fal fa-briefcase'></i> "
+        civilityCombo:
+            1: Monsieur
+            2: Madame
+    edit:
+        submit: 'Mettre à jour'
+    flash:
+        updated: 'Le profil a été mis à jour'
+change_password:
+    submit: 'Modifier le mot de passe'
+    flash:
+        success: 'Le mot de passe a été modifié'
+registration:
+    check_email: 'Un e-mail vous a été envoyé. Il contient un lien d''activation sur lequel il vous faudra cliquer afin d''activer votre compte.'
+    confirmed: 'Félicitations %username%, votre compte est maintenant activé.'
+    back: 'Retour à la page d''origine.'
+    submit: 'Créer mon compte'
+    flash:
+        user_created: 'L''utilisateur a été créé avec succès'
+    email:
+        subject: 'Bienvenue %username% !'
+        message: "Bonjour %username% !\n\nPour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%\n\nCordialement,\nL'équipe.\n"
+resetting:
+    password_already_requested: 'Un nouveau mot de passe a déjà été demandé pour cet utilisateur dans les dernières 24 heures.'
+    password_request_error: 'Aucune demande de réinitialisation a été faite pour votre compte.'
+    check_email: 'Un e-mail vous a été envoyé a %email%. Il contient un lien sur lequel il vous faudra cliquer afin de réinitialiser votre mot de passe.'
+    request:
+        invalid_username: 'Le nom d''utilisateur ou l''adresse e-mail "%username%" n''existe pas.'
+        username: 'Adresse e-mail'
+        submit: 'Réinitialiser le mot de passe'
+    reset:
+        submit: 'Modifier le mot de passe'
+    flash:
+        success: 'Le mot de passe a été réinitialisé avec succès'
+    email:
+        subject: 'Réinitialisation de votre mot de passe'
+        message: "Bonjour %username% !\n\nPour réinitialiser votre mot de passe, merci de vous rendre sur %confirmationUrl%\n\nCordialement,\nL'équipe.\n"
+        begin: 'Bonjour %username%,'
+        content: 'Vous avez demandez à réinitialiser votre mots de passe utilisateur, merci de vous rendre sur ce lien : '
+        lien: réinitialiser
+        salutation: Cordialement,
+        teamFreelance: L'équipe Freelance Officer
+        teamEnterprise: L'équipe Freelance Officer
+layout:
+    logout: Déconnexion
+    login: Connectez-vous
+    alreadyHaveAccount: Vous avez déjà un compte chez nous ?
+    register: Inscription
+    dashboard: Accueil
+    logged_in_as: 'Connecté en tant que %username%'
+form:
+    information: 'Information'
+    contact: Contact
+    group_name: 'Nom du groupe'
+    username: 'Nom d''utilisateur'
+    description: Résumé
+    civility: Civilité
+    phone: Téléphone
+    mobilePhone: Téléphone portable
+    email: 'Adresse e-mail'
+    current_password: 'Mot de passe actuel'
+    password: 'Mot de passe'
+    password_confirmation: 'Confirmation du mot de passe'
+    new_password: 'Nouveau mot de passe'
+    new_password_confirmation: 'Confirmation du nouveau mot de passe'
+    profilePicture: Photo de profil
+    address: Adresse
+    zipCode: Code Postal
+    idCountry: Pays
+    idJobSection: Secteur
+    birthdate: Date de naissance
+    city: Ville
+    lastName: Nom
+    firstName: Prénom
+    cgu: 'Je reconnais avoir pris connaissance et accepte les '
+    cguName: " conditions générales de vente"
+    civilityCombo:
+        1: Monsieur
+        2: Madame
+    enterprise:
+        title: Information sur votre organisation
+        name: Nom de votre organisation
+        email: Email de contact
+        contactFirstName: Prénom du contact
+        contactUsualName: Nom du contact
+
+login:
+    title: 'Freedom: Connexion'
+    connectionTitleFreelance: Connectez-vous à votre compte Freelance Officer
+    forgetPassword: Mot de passe oublié
+
+reset:
+    title: Réinitialiser votre mot de passe
+    resetTitle: Réinitialiser votre mot de passe oublié
+
+register:
+    title: Création
+    registerTitleFreelance: Création de votre compte Freelance Officer
+    registerSubtitleFreelance: Afin de créer votre compte Freelance Officer, merci de remplir tous les champs situés dans le formulaire ci-dessous.
+    validation: Vous avez bien validez votre compte, vous pouvez utilisez pleinement nos services.
+
+leftMenu:
+    dashboard: Accueil
+    consumption: Consommation en cours
+    invoice: Factures & Paiements
+    offer: Offre & Options
+menu:
+    brandFreelance: Freelance Officer
+    accountManager: Information du compte
+    disconnect: Déconnexion
+
+brand:
+    titleFreelance: Freelance Officer
+
+resume:
+    titleSkill: Finalisation de votre compte 1/2
+    subtitleSkill: Nombre d’année d’expérience, domaines, compétences, remplissez les champs ci-dessous.
+    titleResume: Finalisation de votre compte 2/2
+    subtitleResume: Voici le résumé de votre profil, merci de compléter les derniers champs.
+    titleCompetence: "Vos compétences principales :"
+    titleDescribe: Décrivez vous
+    list:
+        title: "Précisez vos compétences"
+        seniority:
+            label: Années d'expériences
+            choices:
+                1: 1-2 ans
+                2: 3-4 ans
+                3: 5-10 ans
+                4: 10+ ans
+    form:
+        title: Titre de votre profil
+        description: Résumé
+        city: Ville
+        tjm : Votre TJM (Taux journalier moyen)
+        skill: Autres compétences
+        submit: Étape suivante
+    feedback:
+        error: "L'action a échoué"
+        success: "Informations sauvegardées"
+        missing: "Sélectionnez votre expérience et au moins une compétence"
+    error:
+        fetch: Impossible de charger votre profil
+
+error:
+    field:
+        number:
+            min: "La valeur ne peut être en dessous de %min%"
+            max: "La valeur ne peut être au dessus de %max%"
+        string:
+            tooShort: "Le champ doit contenir au minimum %min% caractère(s)"
+            tooLong: "Le champ doit contenir au maximum %max% caractère(s)"
+            required: Ce champ est obligatoire
+            email: L'adresse email %email% n'est pas valable
+            phone: Le numéro de téléphone n'est pas valide
+
+footer:
+    label: "© 2021 FREELANCE OFFICER. TOUS DROITS RÉSERVÉS."

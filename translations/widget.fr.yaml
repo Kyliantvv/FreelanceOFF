@@ -1,0 +1,120 @@
+widget:
+    freelance:
+        grid:
+            title: Liste des freelances
+            integration:
+                action: Importer un freelance
+                files: Selectionnez ou déplacez ici des fichiers à intégrer (type Exel)
+                missing: Selectionnez un fichier
+                feedback:
+                    1: Le fichier %name% a été correctement intégré
+                    2: Le fichier %name% n'a pas été correctement intégré
+                dropzone:
+                    fileLimit: Le nombre de fichiers maximum autorisé est de %fileLimit%
+                    fileAdd: Le fichier %fileName% est ajouté
+                    fileDelete: Le fichier %fileName% est retiré
+                btn:
+                    send: Envoyer
+            civility: Freelance
+            info:
+                title: Informations
+                phone: Téléphone
+                mobilePhone: Téléphone portable
+                email: Email
+            address: Adresse
+            status:
+                title: Statut
+                1: Déposé
+                2: En-cours
+                3: Traité
+                4: Archivé
+                5: Supprimé
+            workerStatusType:
+                title: Type de travailleur
+                1: Freelance
+                2: Freelance Freedom
+                3: Auto-entrepreneur
+                9: Autres
+            action:
+                title: Action
+                profile: Afficher profil
+                inProgress: Passer à en cours
+                delete: Supprimer le freelance
+                archived: Archiver le freelance
+                treated: Traiter le freelance
+                om: Exporter vers OM
+        civility:
+            1: M
+            2: Mme
+    project:
+        grid:
+            title: Liste des missions
+            enterprise: Raison sociale
+            projectName: Nom du projet
+            startDate: Date de début
+            duration:
+                title: Durée
+                1: 1 mois
+                2: 2-3 mois
+                3: 4-6 mois
+                4: +6 mois
+            info:
+                title: Informations
+                phone: Téléphone
+                mobilePhone: Téléphone portable
+                email: Email
+            contact: Contact
+            address: Adresse
+            projectType:
+                title: Type du projet
+                1: Projet
+                2: Outsourcing
+            status:
+                title: Statut
+                1: Déposé
+                2: En-cours
+                3: Traité
+                4: Archivé
+                5: Supprimé
+            action:
+                title: Action
+                project: Afficher projet
+                inProgress: Passer à en cours
+                delete: Supprimer le projet
+                archived: Archiver le projet
+                treated: Traiter le projet
+    enterprise:
+        curriculum:
+            grid:
+                title: Outsourcing
+                civility: Identité
+            action:
+                title: Action
+                profile: Afficher CV
+                delete: Supprimer le CV
+    navigation:
+        previous: Page précédent
+        next: Page suivante
+        first: Première page
+        last: Dernière page
+        current: De %start% à %end% sur %total%
+    btn:
+        search: Chercher
+        submit: Enregistrer
+        send: Envoyer
+        cancel: Annuler
+        resetFilter: Effacer filtre
+        import: Importer
+
+modal:
+    action:
+        save: Enregistrer
+        quit: Fermer
+        cancel: Annuler
+        ok: Valider
+    title:
+        info: Information
+        warning: Attention
+        error: Erreur
+        success: Succés
+        deleteConfirm: Confirmer une suppression

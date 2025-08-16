@@ -1,0 +1,12 @@
+modal:
+    contact:
+        title: Contact us
+        firstName: First name
+        lastName: Last name
+        email: Email
+        phone: Phone
+        comment: Your message
+    btn:
+        submit: Register
+        send: Send
+        cancel: Cancel

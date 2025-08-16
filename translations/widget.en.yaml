@@ -1,0 +1,73 @@
+widget:
+    freelance:
+        grid:
+            title: Freelances list
+            civility: Freelance
+            info:
+                title: Information
+                phone: Phone
+                mobilePhone: Mobile phone
+                email: Email
+            address: Address
+            status:
+                title: Status
+                1: Filed
+                2: In progress
+                3: Treated
+                4: Archived
+                5: Deleted
+            workerStatusType:
+                title: Type de travailleur
+                1: Freelance
+                2: Freelance Freedom
+                3: Auto-entrepreneur
+                9: Autres
+            action:
+                title: Action
+                profile: Show profile
+                inProgress: Pass to in progress
+                delete: Delete freelance
+                archived: Archive freelance
+                treated: Treate freelance
+        civility:
+            1: Mr
+            2: Mme
+    project:
+        grid:
+            title: Missions list
+            enterprise: Enterprise
+            projectName: Project name
+            startDate: Begin mission date
+            duration:
+                title: Duration
+                1: 1 month
+                2: 2-3 months
+                3: 4-6 months
+                4: +6 months
+            info:
+                title: Information
+                phone: Phone
+                mobilePhone: Mobile phone
+                email: Email
+            address: Address
+            status:
+                title: Status
+                1: Filed
+                2: In progress
+                3: Treated
+                4: Archived
+                5: Deleted
+            action:
+                title: Action
+                project: Show project
+                inProgress: Pass to in progress
+                delete: Delete project
+                archived: Archive project
+                treated: Treate project
+
+    btn:
+        search: Search
+        submit: Register
+        send: Send
+        cancel: Cancel
+        resetFilter: Erase filter

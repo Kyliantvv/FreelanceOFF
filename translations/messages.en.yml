@@ -1,0 +1,389 @@
+
+menu:
+    brandFreelance: Freelance Officer
+    search: Search
+    searchCombo:
+        1: Freelance
+        2: Project
+    items:
+        connection: Connection
+        registration: Registration
+        accountManager: Profile
+        cgu: CGU
+        disconnect: Log out
+        admin: Admin
+
+presentation:
+    freelance:
+        btn:
+            freelance: Freelance
+            createAccount: Submit an application
+            contact: Contact us
+        alt:
+            profile: Profile
+    enterprise:
+        btn:
+            enterprise: Enterprise
+            createAccount: I search an expoert for a mission
+            createOutsourcingccount: I want to outsource
+            contact: Contact us
+        alt:
+            profile: Profile
+
+btn:
+    chooseFile: Choose file
+    upload: Upload your file
+    edit: Edit
+    cancel: Cancel
+    submit: Register
+    delete: Delete
+    see: See
+    seeDoc: Open document
+    add: Add
+
+modal:
+    skill:
+        title: Skill
+    formation:
+        title: Formation
+    experience:
+        title: Experience
+    profilePicture:
+        title: Modifiy the picture
+
+admin:
+    groups:
+        user: User
+        application: Application
+    entityname:
+        user: User
+        country: Country
+        jobSection: Secteur
+        skillSection: Catégories de compétence
+        skill: Compétences
+
+    user:
+        panel:
+            firstPanel:
+                title: Information
+                subtitleCreation: Information about the user
+                subtitleModification: Information about the user
+        list:
+            civility: Civility
+            email: "Email:"
+            accountStatus: Account status
+            expirationDate: Expiration date
+            lastName: Last name
+            firstName: First name
+            password: Password
+            enabled: Account enabled
+            lastLogin: Last login
+            phone: "Phone:"
+            mobilePhone: "Mobile phone:"
+        civilityCombo:
+            1: M.
+            2: Mme.
+        enabledCombo:
+            0: Not enabled
+            1: Enabled
+    country:
+        panel:
+            firstPanel:
+                title: Information
+                subtitleCreation: Information sur le pays
+                subtitleModification: Information sur le pays
+        list:
+            countryCode: Code pays
+            countryName: Nom du pays
+
+    jobSection:
+        panel:
+            firstPanel:
+                title: Information
+                subtitleCreation: Information sur le secteur
+                subtitleModification: Information sur le secteur
+        list:
+            sectionName: Nom du secteur
+
+    skillSection:
+        panel:
+            firstPanel:
+                title: Information
+                subtitleCreation: Information sur la catégorie de compétence
+                subtitleModification: Information sur la catégorie de compétence
+        list:
+            sectionName: Nom de la catégorie
+            creationAccountVisibility: Afficher sur le création de compte
+            icon: Icon
+
+    skill:
+        panel:
+            firstPanel:
+                title: Information
+                subtitleCreation: Information sur la compétence
+                subtitleModification: Information sur la compétence
+        list:
+            skillName: Nom de la compétence
+
+month:
+    1: January
+    2: February
+    3: March
+    4: April
+    5: May
+    6: June
+    7: July
+    8: August
+    9: Spetember
+    10: October
+    11: November
+    12: December
+
+formation:
+    form:
+        idSchool: School
+        degree: Degree
+        studiesField: Field of studies
+        beginYear: Begin year
+        endYear: End of year (or forecast)
+        hobbies: Activities outside the training
+        description: Description
+    alert:
+        successCreation: La formation a été créée
+        successModification: La formation a bien été modifiée
+        successDelete: La formation a bien été supprimée
+
+experience:
+    form:
+        idEnterprise: Enterprise
+        experienceName: Experience name
+        idCountry: Country
+        city: City
+        isCurrentExperience: Is current experience
+        beginDate: Begin date
+        beginYear: Year
+        beginMonth: Month
+        endDate: End date
+        endYear: Year
+        endMonth: Month
+        experienceDescription: Description
+    alert:
+        successCreation: L'exepérience a été créée
+        successModification: L'exepérience a bien été modifiée
+        successDelete: L'exepérience a bien été supprimée
+
+skill:
+    form:
+        skillSection: Skill category
+        skillName: Skill
+    alert:
+        successCreation: La compétence a été créée
+        successModification: La compétence a bien été modifiée
+        successDelete: La compétence a bien été supprimée
+
+document:
+    form:
+        documentType:
+            label: Quel est le type de votre document
+            value:
+                1: CV
+                2: Plaquette Offre
+                3: Présentation
+                8: Autres
+        commentaireCle: Associer un ou plusieurs mots clé
+        brochureType: Importer un fichier PDF valide (<5M)
+        brochure: Selectionner un PDF
+        upload: Télécharger
+        choose: Choisir un fichier PDF valide
+        tag:
+            add: Ajouter mot clé
+            new: Saisisez un mot clé à lié au document
+            done: entrée pour valider
+    alert:
+        successCreation: Le document a été créée
+        successModification: Le document a bien été modifiée
+        successDelete: Le document a bien été supprimée
+
+enterprise:
+    form:
+        name: Désignation de votre entreprise
+        descriptionShort: Description courte de l’entreprise
+        descriptionFull: Décrivez votre entreprise
+        secteur: Secteur
+        logo: Importer logo de l'entreprise
+        logoType: Importer une image valide
+        choose: Choisir une image (jpg/png)
+        upload: Télécharger
+        contact: "Contact d'entreprise"
+        mail: Email
+        contactTel: Tel
+        contactFirstName: Prénom
+        contactUsualName: Nom
+        url: Lien web
+        urlWeb: Site web
+        facebook: Lien Facebook
+        linkedin: Lien Linkedin
+    alert:
+        successCreation: L'entreprise a été créée
+        successModification: L'entreprise a bien été modifiée
+        successDelete: L'entreprise a bien été supprimée
+
+project:
+    form:
+        email: Email de contact
+        projectName: Intitulé de votre projet/mission
+        location: Lieu
+        duration:
+            labelMission: Durée
+            labelOutsourcing: Disponibilité
+            choices:
+                1: 1 month
+                2: 2-3 months
+                3: 4-6 months
+                4: +6 months
+        startDate: A partir de
+        idJobSection: Secteur
+        description: Description
+        contact: Contact
+        profil: Profil
+        profils: Profils
+        descriptionMission: Description de votre demande
+        descriptionOutsourcing: Commentaire
+        document: Pièce jointe
+        documentType: Choisissez un fichier PDF valide (<5M)
+        projectType:
+            label: Type de demande
+            choices:
+                1: Projet
+                2: Outsourcing
+        status:
+            label: Status de la demande
+            choices:
+                1: Déposé
+                2: En-cours
+                3: Traité
+                4: Archivé
+                5: Supprimé
+        comment: Commentaire Mon Freelance Officer
+        upload: Télécharger
+        choose: Choisir un fichier PDF
+    alert:
+        successCreation: Le projet a été créée
+        successModification: Le projet a bien été modifiée
+        successDelete: Le projet a bien été supprimée
+
+profileResources:
+    form:
+        profileType: Profile
+        salaryNet: Rémunération
+        contractType:
+            label: Type de contrat
+            choices:
+                1: Plein temps
+                2: Temps partiel
+        comment: Commentaire
+        idResume: Associer un CV
+    alert:
+        successCreation: La ressource a été créée
+        successModification: La ressource a bien été modifiée
+        successDelete: La ressource a bien été supprimée
+
+resume:
+    form:
+        civility:
+            label: Civilité
+            choices:
+                1: Monsieur
+                2: Madame
+        lastName: Nom
+        firstName: Prénom
+        seniority:
+            label: Expérience
+            choices:
+                1: 1-2 ans
+                2: 3-4 ans
+                3: 5-10 ans
+                4: 10+ ans
+        workerStatusType:
+            label: Type de travailleur
+            choices:
+                1: Freelance
+                2: Freelance Athena
+                3: Auto entrepreneur
+                9: Autres
+    alert:
+        successCreation: Le CV a été créée
+        successModification: Le CV a bien été modifiée
+        successDelete: Le CV a bien été supprimée
+
+index:
+    experience: Experience
+    formation: Formation
+    skill: Skill
+    today: Today
+    link:
+        title: "Web site link"
+        uriLink: "URL"
+        linkTypeName:
+            1: "Web site"
+            2: "Facebook"
+            3: "Twitter"
+            4: "Linkedin"
+            5: "Indeed"
+        linkType:
+            title: "Link type"
+            1: "<i class='fal fa-globe'></i> "
+            2: "<i class='fab fa-facebook'></i> "
+            3: "<i class='fab fa-twitter'></i> "
+            4: "<i class='fab fa-linkedin-in'></i> "
+            5: "<i class='fal fa-briefcase'></i> "
+    btn:
+        createExperience: New experience
+        createFormation: New formation
+        createSkill: New skill
+        editLink: Edit links
+
+email:
+    footer:
+        join: Rejoignez-nous !
+    accountConfirmation:
+        title: Confirmation
+        object: 'Bienvenue %username% !'
+        begin: 'Bienvenue %username%,'
+        content: 'Pour valider votre compte utilisateur, merci de vous rendre sur '
+        activate: activer
+        salutation: Cordialement,
+        teamFreelance: L'équipe Freelance Officer
+    resetEmail:
+        object: Réinitialiser votre mot de passe
+        link: réinitialiser votre mot de passe
+        begin: Bonjour
+        content: Vous pouvez réinitialiser votre mot de passe en cliquant
+        salutation: Cordialement,
+        team: L'équipe Mon CV Freelance
+    contact:
+        title: Un nouveau contact
+        begin: Bonjour
+        contentFreelance: Un nouveau contact vous écrit
+        contentIdentity:
+            name: Nom
+            firstName: Prénom
+            email: Email
+            tel: Tel
+        contentComment: Message
+    img:
+        alt:
+            company: Mon CV Freelance
+            social:
+                facebook: Facebook
+                twitter: Twitter
+                linkedin: Linkedin
+
+User Create: User creation
+User List: User list
+Country Create: Country creation
+Country List: Country list
+Job Section Create: Création d'une section
+Job Section List: Liste des sections
+Skill Section Create: Création d'une catégorie de compétence
+Skill Section List: Liste des catégories de compétence
